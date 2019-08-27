@@ -1,0 +1,4 @@
+de.test.CalleeTest#onlyCallMethod1
+de.test.Callee#<init>
+de.test.Callee#method1
+de.test.Callee#innerMethod

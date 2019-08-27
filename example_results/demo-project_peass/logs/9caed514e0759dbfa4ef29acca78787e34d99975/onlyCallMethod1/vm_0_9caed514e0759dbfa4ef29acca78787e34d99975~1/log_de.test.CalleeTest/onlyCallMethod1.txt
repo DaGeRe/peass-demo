@@ -1,0 +1,52 @@
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------< [0;36mde.test:demo-project[0;1m >------------------------[m
+[[1;34mINFO[m] [1mBuilding project 1.0-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mdemo-project[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/reichelt/workspaces/dissworkspace/demo/demo-project/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:compile[m [1m(default-compile)[m @ [36mdemo-project[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 1 source file to /home/reichelt/workspaces/dissworkspace/demo/demo-project/target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mdemo-project[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/reichelt/workspaces/dissworkspace/demo/demo-project/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:testCompile[m [1m(default-testCompile)[m @ [36mdemo-project[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 1 source file to /home/reichelt/workspaces/dissworkspace/demo/demo-project/target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.21.0:test[m [1m(default-test)[m @ [36mdemo-project[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running de.test.[1mCalleeTest[m
+12:18:21.062 [main] DEBUG de.dagere.kopeme.junit.rule.TestRunnables:42 - Klasse: class de.test.CalleeTest
+12:18:21.070 [main] DEBUG de.dagere.kopeme.parsing.BuildtoolProjectNameReader:46 - Directory: /home/reichelt/workspaces/dissworkspace/demo/demo-project/.
+12:18:21.102 [main] DEBUG de.dagere.kopeme.TimeBoundExecution:72 - Waiting: 300000
+12:18:21.103 [timebound-0] DEBUG de.dagere.kopeme.junit.rule.KoPeMeBasicStatement:108 - --- Starting execution 1/1 ---
+Constructor
+12:18:21.136 [timebound-0] DEBUG de.dagere.kopeme.junit.rule.KoPeMeBasicStatement:115 - --- Stopping execution 1/1 ---
+12:18:21.136 [timebound-0] DEBUG de.dagere.kopeme.junit.rule.KoPeMeBasicStatement:128 - Interrupt state: false
+12:18:21.136 [timebound-0] DEBUG de.dagere.kopeme.junit.rule.KoPeMeBasicStatement:134 - Executions: 1
+12:18:21.163 [timebound-0] INFO  de.dagere.kopeme.datastorage.XMLDataStorer:170 - Storing data to: /home/reichelt/workspaces/dissworkspace/demo/peass/../demo-project_peass/measurementsTemp/de.test/demo-project/de.test.CalleeTest/onlyCallMethod1.xml
+12:18:21.313 [timebound-0] INFO  de.dagere.kopeme.datastorage.XMLDataStorer:170 - Storing data to: /home/reichelt/workspaces/dissworkspace/demo/peass/../demo-project_peass/measurementsTemp/de.test/demo-project/de.test.CalleeTest/onlyCallMethod1.xml
+12:18:21.427 [main] DEBUG de.dagere.kopeme.TimeBoundExecution:77 - KoPeMe-Test METHOD. Kieker: false Threads: 0
+12:18:21.428 [main] INFO  de.dagere.kopeme.junit.rule.KoPeMeStandardRuleStatement:67 - Test de.test.CalleeTest beendet
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m1[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.759 s - in de.test.[1mCalleeTest[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1;32mTests run: 1, Failures: 0, Errors: 0, Skipped: 0[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  3.359 s
+[[1;34mINFO[m] Finished at: 2019-08-27T12:18:21+02:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m

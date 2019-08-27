@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kopemedata>
+ <testcases class="de.test.CalleeTest">
+  <testcase name="onlyCallMethod1">
+   <datacollector name="de.dagere.kopeme.datacollection.TimeDataCollector">
+    <result date="1566901101313">
+     <value>0.0</value>
+     <deviation>0.0</deviation>
+     <warmupExecutions>0</warmupExecutions>
+     <executionTimes>1</executionTimes>
+     <repetitions>1</repetitions>
+     <min>6611</min>
+     <max>6611</max>
+     <first10percentile>6611.0</first10percentile>
+     <fulldata>
+      <value start="1566901101103">6611</value>
+     </fulldata>
+    </result>
+   </datacollector>
+  </testcase>
+ </testcases>
+</kopemedata>

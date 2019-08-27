@@ -1,0 +1,24 @@
+de.test.CalleeTest#onlyCallMethod1									de.test.CalleeTest#onlyCallMethod1
+@Test													@Test
+@de.dagere.kopeme.annotations.PerformanceTest(executionTimes = 1, warmupExecutions = 0, logFullD	@de.dagere.kopeme.annotations.PerformanceTest(executionTimes = 1, warmupExecutions = 0, logFullD
+public void onlyCallMethod1() {										public void onlyCallMethod1() {
+    final Callee callee = new Callee();									    final Callee callee = new Callee();
+    callee.method1();											    callee.method1();
+    Assert.assertNotNull(callee);									    Assert.assertNotNull(callee);
+}													}
+de.test.Callee#<init>											de.test.Callee#<init>
+public Callee() {											public Callee() {
+    System.out.println("Constructor");									    System.out.println("Constructor");
+}													}
+de.test.Callee#method1											de.test.Callee#method1
+public void method1() {											public void method1() {
+    innerMethod();											    innerMethod();
+}													}
+de.test.Callee#innerMethod										de.test.Callee#innerMethod
+private void innerMethod() {										private void innerMethod() {
+    try {												    try {
+        Thread.sleep(5);									   |	        Thread.sleep(15);
+    } catch (final InterruptedException e) {								    } catch (final InterruptedException e) {
+        e.printStackTrace();										        e.printStackTrace();
+    }													    }
+}													}

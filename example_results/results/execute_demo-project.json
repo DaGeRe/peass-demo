@@ -1,0 +1,12 @@
+{
+  "url" : "",
+  "versions" : {
+    "9caed514e0759dbfa4ef29acca78787e34d99975" : {
+      "testcases" : {
+        "de.test.CalleeTest" : [ "onlyCallMethod1" ]
+      },
+      "predecessor" : "9caed514e0759dbfa4ef29acca78787e34d99975~1"
+    }
+  },
+  "android" : false
+}

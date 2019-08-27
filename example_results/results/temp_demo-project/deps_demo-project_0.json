@@ -1,0 +1,57 @@
+{
+  "url" : "",
+  "initialversion" : {
+    "version" : "113ee48553798d00772ad021de183d8a9ba3dbde",
+    "jdk" : 8,
+    "initialDependencies" : {
+      "de.test.CalleeTest#onlyCallMethod1" : {
+        "entities" : [ {
+          "clazz" : "de.test.Callee",
+          "filename" : "de.test.Callee",
+          "method" : "<init>",
+          "parameters" : [ ]
+        }, {
+          "clazz" : "de.test.Callee",
+          "filename" : "de.test.Callee",
+          "method" : "innerMethod",
+          "parameters" : [ ]
+        }, {
+          "clazz" : "de.test.Callee",
+          "filename" : "de.test.Callee",
+          "method" : "method1",
+          "parameters" : [ ]
+        }, {
+          "clazz" : "de.test.CalleeTest",
+          "filename" : "de.test.CalleeTest",
+          "method" : "onlyCallMethod1",
+          "parameters" : [ ]
+        } ]
+      }
+    }
+  },
+  "versions" : {
+    "50924ed354b8476d39ddbb20d3ba6c48088a3008" : {
+      "running" : true,
+      "jdk" : 8,
+      "predecessor" : "50924ed354b8476d39ddbb20d3ba6c48088a3008~1",
+      "changedClazzes" : {
+        "de.test.Callee#method2" : {
+          "testcases" : { }
+        }
+      }
+    },
+    "9caed514e0759dbfa4ef29acca78787e34d99975" : {
+      "running" : true,
+      "jdk" : 8,
+      "predecessor" : "9caed514e0759dbfa4ef29acca78787e34d99975~1",
+      "changedClazzes" : {
+        "de.test.Callee#innerMethod" : {
+          "testcases" : {
+            "de.test.CalleeTest" : [ "onlyCallMethod1" ]
+          }
+        }
+      }
+    }
+  },
+  "android" : false
+}

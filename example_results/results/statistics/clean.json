@@ -1,0 +1,16 @@
+{
+  "statistics" : {
+    "9caed514e0759dbfa4ef29acca78787e34d99975" : {
+      "TestCase [clazz=de.test.CalleeTest, method=onlyCallMethod1]" : {
+        "meanOld" : 6448.0,
+        "meanCurrent" : 16422.5,
+        "deviationOld" : 0.03575012572376156,
+        "deviationCurrent" : 0.009085068097449325,
+        "vms" : 2,
+        "tvalue" : 0.0,
+        "predecessor" : "9caed514e0759dbfa4ef29acca78787e34d99975~1",
+        "change" : true
+      }
+    }
+  }
+}
