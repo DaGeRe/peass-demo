@@ -1,6 +1,6 @@
 # PeASS Demo
 
-This demo shows how to detect a simple performance change and its cause by PeASS. The demo project contains three versions, where CalleeTest calls Callee. In the 3rd version 9caed51, Callee#innerMethod has a longer sleep than before, therefore, performance gets worse in this version.
+This demo shows how to detect a simple performance change and its cause by PeASS. The `demo-project` contains three versions, where `CalleeTest` calls `Callee`. In the 3rd version 9caed51, `Callee#innerMethod` contains a longer call to `Thread.sleep` than before, therefore, performance gets worse in this version.
 
 If you just want to see the results, you can also immediately open `example_results/results/de.test.CalleeTest#onlyCallMethod1.html`.
 
