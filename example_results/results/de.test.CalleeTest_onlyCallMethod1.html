@@ -1,33 +1,7 @@
 <!DOCTYPE html>
-<script>
-var treeData = [
-{
-  "name" : "CalleeTest#onlyCallMethod1",
-  "parent" : null,
-  "children" : [ {
-    "name" : "Callee#<init>",
-    "parent" : "CalleeTest#onlyCallMethod1",
-    "children" : [ ],
-    "color" : "#FFFFFF"
-  }, {
-    "name" : "Callee#method1",
-    "parent" : "CalleeTest#onlyCallMethod1",
-    "children" : [ {
-      "name" : "Callee#innerMethod",
-      "parent" : "Callee#method1",
-      "children" : [ ],
-      "color" : "#FF0000"
-    } ],
-    "color" : "#FF0000"
-  } ],
-  "color" : "#FF0000"
-}];
-// ************** Generate the tree diagram   *****************
-var margin = {top: 20, right: 120, bottom: 20, left: 260},
-   width = 800- margin.right - margin.left,
-   height = 300 - margin.top - margin.bottom;</script>
+
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
 
     <title>Tree Example</title>
@@ -57,11 +31,40 @@ var margin = {top: 20, right: 120, bottom: 20, left: 260},
     </style>
 
   </head>
-
   <body>
+<script>
+var treeData = [
+{
+  "name" : "CalleeTest#onlyCallMethod1",
+  "parent" : null,
+  "children" : [ {
+    "name" : "Callee#<init>",
+    "parent" : "CalleeTest#onlyCallMethod1",
+    "children" : [ ],
+    "color" : "#FFFFFF"
+  }, {
+    "name" : "Callee#method1",
+    "parent" : "CalleeTest#onlyCallMethod1",
+    "children" : [ {
+      "name" : "Callee#innerMethod",
+      "parent" : "Callee#method1",
+      "children" : [ ],
+      "color" : "#FF0000"
+    } ],
+    "color" : "#FF0000"
+  } ],
+  "color" : "#FF0000"
+}];
+// ************** Generate the tree diagram   *****************
+var margin = {top: 20, right: 120, bottom: 20, left: 260},
+   width = 800- margin.right - margin.left,
+   height = 300 - margin.top - margin.bottom;</script>  
+
+
+
 
 <!-- load the d3.js library -->	
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="d3.v3.min.js"></script>
 	
 <script>
 	
