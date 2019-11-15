@@ -1,0 +1,6 @@
+@Test
+public void onlyCallMethod1() {
+    final Callee callee = new Callee();
+    callee.method1();
+    Assert.assertNotNull(callee);
+}

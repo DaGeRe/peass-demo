@@ -26,9 +26,9 @@ Afterwards, run `./peass getchanges -data ../demo-project_peass/clean/ -dependen
 
 ## Executing the Root Cause Analysis
 
-Execute `./peass searchcause -vms 2 -version 9caed514e0759dbfa4ef29acca78787e34d99975 -test de.test.CalleeTest#onlyCallMethod1 -folder ../demo-project -executionfile results/execute_demo-project.json` (takes ~8 minutes) in order to get changes.
+Execute `./peass searchcause -vms 2 -iterations 1 -warmup 0 -version 9caed514e0759dbfa4ef29acca78787e34d99975 -test de.test.CalleeTest#onlyCallMethod1 -folder ../demo-project -executionfile results/execute_demo-project.json` (takes ~8 minutes) in order to get changes.
 
-To finally get the root cause analysis visualization, run `./peass visualizerca -data ../demo-project_peass/`. Now, results/ contains the file de.test.CalleeTest#onlyCallMethod1.html which you can visualize in your browser. You'll see that CalleeTest#onlyCallMethod1, Callee#method1 and Callee#innerMethod are red - therefore, all this have gotten slower and Callee#innerMethod is very likely the root cause of the performance change.
+To finally get the root cause analysis visualization, run `./peass visualizerca -data ../demo-project_peass/ -propertyFolder results/properties_demo-project/`. Now, results/ contains the file de.test.CalleeTest#onlyCallMethod1.html which you can visualize in your browser. You'll see that CalleeTest#onlyCallMethod1, Callee#method1 and Callee#innerMethod are red - therefore, all this have gotten slower and Callee#innerMethod is very likely the root cause of the performance change.
 
 ## Spotting Bugs
 
