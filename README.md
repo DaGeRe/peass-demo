@@ -29,7 +29,7 @@ Run `./peass select -folder ../peass-demo/demo-project/` (takes ~1 minute). Afte
 
 Run `./peass measure -executionfile results/execute_demo-project.json -folder ../peass-demo/demo-project -iterations 1 -warmup 0 -repetitions 1 -vms 2` (takes ~30 seconds) in order to obtain performance measurements. For real examples, higher execution times are needed, but for the demo case, this is sufficient.
 
-Afterwards, run `./peass getchanges -data ../peass-demo/demo-project_peass/ -dependencyfile results/deps_demo-project.json` (takes ~1 second) in order to identify the changes. Now in results/demo-project.json, all changes are listed. As expected, 9caed514e0759dbfa4ef29acca78787e34d99975 contains a change in the test onlyCallMethod1. 
+Afterwards, run `./peass getchanges -data ../peass-demo/demo-project_peass/ -dependencyfile results/deps_demo-project.json` (takes ~1 second) in order to identify the changes. Now in `results/changes_demo-project.json`, all changes are listed. As expected, 9caed514e0759dbfa4ef29acca78787e34d99975 contains a change in the test onlyCallMethod1. 
 
 ## Executing the Root Cause Analysis
 
