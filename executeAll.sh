@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 tar -xvf demo-project.tar.xz
-git clone https://github.com/mai13drd/peass.git && \
+git clone https://github.com/DaGeRe/peass.git && \
 	cd peass && \
 	DEMO_HOME=$(pwd)/../demo-project && \
 	mvn clean install -DskipTests=true
