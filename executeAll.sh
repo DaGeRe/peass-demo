@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-tar -xvf demo-project.tar.xz
+tar -xf demo-project.tar.xz
 git clone https://github.com/DaGeRe/peass.git && \
 	cd peass && \
 	DEMO_HOME=$(pwd)/../demo-project && \
