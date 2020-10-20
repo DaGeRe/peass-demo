@@ -48,112 +48,123 @@ Quelltext
 </div>
 <div id='tree' style='position: absolute; top: 150px; right: 5px; left: 5px; bottom: 335px; overflow: scroll; border: 2px solid blue; border-radius: 1em 1em 1em 1em;'> </div>
 <script>
-var source = {"de.test.CalleeTest#onlyCallMethod1": `@Test
-public void onlyCallMethod1() {
-    final Callee callee = new Callee();
-    callee.method1();
-    Assert.assertNotNull(callee);
-}`,"de.test.Callee#<init>": `public Callee() {
-    System.out.println("Constructor");
-}`,"de.test.Callee#method1": `public void method1() {
+var source = {"de.test.Callee.method1_": `public void method1() {
     innerMethod();
-}`,"de.test.Callee#innerMethod": `private void innerMethod() {										private void innerMethod() {
+}`,"de.test.Callee.<init>_": `public Callee() {
+    System.out.println("Constructor");
+}`,"de.test.Callee.innerMethod_": `private void innerMethod() {										private void innerMethod() {
     try {												    try {
         Thread.sleep(5);									   |	        Thread.sleep(15);
     } catch (final InterruptedException e) {								    } catch (final InterruptedException e) {
         e.printStackTrace();										        e.printStackTrace();
     }													    }
 }													}
-`,};
+`,"de.test.CalleeTest.onlyCallMethod1_": `@Test
+public void onlyCallMethod1() {
+    final Callee callee = new Callee();
+    callee.method1();
+    Assert.assertNotNull(callee);
+}`,};
 var treeData = [
 {
   "call" : "de.test.CalleeTest#onlyCallMethod1",
   "kiekerPattern" : "public void de.test.CalleeTest.onlyCallMethod1()",
+  "otherKiekerPattern" : "public void de.test.CalleeTest.onlyCallMethod1()",
   "name" : "CalleeTest#onlyCallMethod1",
+  "key" : "de.test.CalleeTest.onlyCallMethod1_",
+  "otherKey" : "de.test.CalleeTest.onlyCallMethod1_",
   "parent" : null,
-  "children" : [ {
-    "call" : "de.test.Callee#<init>",
-    "kiekerPattern" : "public new de.test.Callee.<init>()",
-    "name" : "Callee#<init>",
-    "parent" : "de.test.CalleeTest#onlyCallMethod1",
-    "children" : [ ],
-    "color" : "#FFFFFF",
-    "statistic" : {
-      "meanOld" : 72.38499999999998,
-      "meanCurrent" : 73.87999999999998,
-      "deviationOld" : 1.0535891039679621,
-      "deviationCurrent" : 6.448813844421297,
-      "vms" : 2,
-      "callsOld" : 200,
-      "calls" : 200,
-      "tvalue" : -0.3235610516622576,
-      "change" : false
-    },
-    "hasSourceChange" : false,
-    "state" : null,
-    "values" : [ 78.43999999999997, 69.32 ],
-    "valuesPredecessor" : [ 73.12999999999998, 71.63999999999997 ]
-  }, {
-    "call" : "de.test.Callee#method1",
-    "kiekerPattern" : "public void de.test.Callee.method1()",
-    "name" : "Callee#method1",
-    "parent" : "de.test.CalleeTest#onlyCallMethod1",
-    "children" : [ {
-      "call" : "de.test.Callee#innerMethod",
-      "kiekerPattern" : "private void de.test.Callee.innerMethod()",
-      "name" : "Callee#innerMethod",
-      "parent" : "de.test.Callee#method1",
-      "children" : [ ],
-      "color" : "#FF0000",
-      "statistic" : {
-        "meanOld" : 5140.194999999998,
-        "meanCurrent" : 15129.055,
-        "deviationOld" : 2.8072139213094873,
-        "deviationCurrent" : 11.037936854322417,
-        "vms" : 2,
-        "callsOld" : 200,
-        "calls" : 200,
-        "tvalue" : -1240.3187615810525,
-        "change" : true
-      },
-      "hasSourceChange" : true,
-      "state" : "FASTER",
-      "values" : [ 15136.86, 15121.25 ],
-      "valuesPredecessor" : [ 5142.179999999997, 5138.209999999998 ]
-    } ],
-    "color" : "#FF0000",
-    "statistic" : {
-      "meanOld" : 5168.045,
-      "meanCurrent" : 15166.794999999998,
-      "deviationOld" : 49.617682835860734,
-      "deviationCurrent" : 4.68811795926753,
-      "vms" : 2,
-      "callsOld" : 200,
-      "calls" : 200,
-      "tvalue" : -283.7228244518202,
-      "change" : true
-    },
-    "hasSourceChange" : false,
-    "state" : "FASTER",
-    "values" : [ 15163.479999999998, 15170.109999999999 ],
-    "valuesPredecessor" : [ 5203.130000000001, 5132.96 ]
-  } ],
   "color" : "#FF0000",
   "statistic" : {
-    "meanOld" : 5387.18,
-    "meanCurrent" : 15429.760000000002,
-    "deviationOld" : 42.14356415871463,
-    "deviationCurrent" : 21.326340520587458,
+    "meanOld" : 5327.0,
+    "meanCurrent" : 15367.945,
+    "deviationOld" : 71.61577479857336,
+    "deviationCurrent" : 16.04425286512441,
     "vms" : 2,
     "callsOld" : 200,
     "calls" : 200,
-    "tvalue" : -300.6913583348272,
+    "tvalue" : -193.4847971548377,
     "change" : true
   },
   "hasSourceChange" : false,
-  "state" : "FASTER",
-  "values" : [ 15444.840000000004, 15414.680000000002 ],
-  "valuesPredecessor" : [ 5416.979999999998, 5357.380000000003 ]
+  "state" : "SLOWER",
+  "values" : [ 15379.29, 15356.599999999999 ],
+  "valuesPredecessor" : [ 5276.36, 5377.639999999999 ],
+  "children" : [ {
+    "call" : "de.test.Callee#<init>",
+    "kiekerPattern" : "public new de.test.Callee.<init>()",
+    "otherKiekerPattern" : "public new de.test.Callee.<init>()",
+    "name" : "Callee#<init>",
+    "key" : "de.test.Callee.<init>_",
+    "otherKey" : "de.test.Callee.<init>_",
+    "parent" : "de.test.CalleeTest#onlyCallMethod1",
+    "color" : null,
+    "statistic" : {
+      "meanOld" : 2.745,
+      "meanCurrent" : 3.105,
+      "deviationOld" : 0.3040559159102162,
+      "deviationCurrent" : 0.07778174593051983,
+      "vms" : 2,
+      "callsOld" : 200,
+      "calls" : 200,
+      "tvalue" : -1.6221812726135947
+    },
+    "hasSourceChange" : false,
+    "state" : null,
+    "values" : [ 3.1599999999999997, 3.0500000000000003 ],
+    "valuesPredecessor" : [ 2.960000000000001, 2.53 ],
+    "children" : [ ]
+  }, {
+    "call" : "de.test.Callee#method1",
+    "kiekerPattern" : "public void de.test.Callee.method1()",
+    "otherKiekerPattern" : "public void de.test.Callee.method1()",
+    "name" : "Callee#method1",
+    "key" : "de.test.Callee.method1_",
+    "otherKey" : "de.test.Callee.method1_",
+    "parent" : "de.test.CalleeTest#onlyCallMethod1",
+    "color" : "#FF0000",
+    "statistic" : {
+      "meanOld" : 5189.004999999999,
+      "meanCurrent" : 15227.529999999999,
+      "deviationOld" : 37.653436098183654,
+      "deviationCurrent" : 11.539982668965536,
+      "vms" : 2,
+      "callsOld" : 200,
+      "calls" : 200,
+      "tvalue" : -360.48372419770516,
+      "change" : true
+    },
+    "hasSourceChange" : false,
+    "state" : "SLOWER",
+    "values" : [ 15219.369999999999, 15235.69 ],
+    "valuesPredecessor" : [ 5215.629999999999, 5162.379999999999 ],
+    "children" : [ {
+      "call" : "de.test.Callee#innerMethod",
+      "kiekerPattern" : "private void de.test.Callee.innerMethod()",
+      "otherKiekerPattern" : "private void de.test.Callee.innerMethod()",
+      "name" : "Callee#innerMethod",
+      "key" : "de.test.Callee.innerMethod_",
+      "otherKey" : "de.test.Callee.innerMethod_",
+      "parent" : "de.test.Callee#method1",
+      "color" : "#FF0000",
+      "statistic" : {
+        "meanOld" : 5184.915000000001,
+        "meanCurrent" : 15187.319999999998,
+        "deviationOld" : 28.050926009671677,
+        "deviationCurrent" : 22.21729506488009,
+        "vms" : 2,
+        "callsOld" : 200,
+        "calls" : 200,
+        "tvalue" : -395.3083387745348,
+        "change" : true
+      },
+      "hasSourceChange" : true,
+      "state" : "SLOWER",
+      "values" : [ 15203.029999999997, 15171.609999999999 ],
+      "valuesPredecessor" : [ 5165.08, 5204.750000000002 ],
+      "children" : [ ]
+    } ]
+  } ]
 }];
 // ************** Generate the tree diagram   *****************
 var margin = {top: 20, right: 120, bottom: 20, left: 260},
@@ -183,20 +194,25 @@ var svg = d3.select("#tree").append("svg")
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 var faster_changed = textures.lines()
-.background("#FF0000")
+.background("#00FF00")
 .thicker();
 
 var slower_changed = textures.lines()
-.background("#00FF00")
+.background("#FF0000")
 .thicker();
 
 var unknown_changed = textures.lines()
 .background("#8888FF")
 .thicker();
 
+var equal_changed = textures.lines()
+.background("#FFF")
+.thicker();
+
 svg.call(faster_changed);
 svg.call(slower_changed);
 svg.call(unknown_changed);
+svg.call(equal_changed);
 
 root = treeData[0];
 root.x0 = height / 2;
@@ -213,6 +229,7 @@ function getTexture(node){
 	  case 'FASTER': return faster_changed.url();
 	  case 'SLOWER': return slower_changed.url();
 	  case 'UNKNOWN': return unknown_changed.url();
+	  case null: return equal_changed.url();
 	}
   }
   else 
@@ -353,9 +370,16 @@ function shownode(node) {
   } else {
 	  infos.innerHTML = "No statistic";
   }
-	
-  quelltext.innerHTML="<pre>" + source[node.call] +"</pre>"
-  histogramm.innerHTML=node.name;
+  if (node.key != node.otherKey){
+    quelltext.innerHTML="<pre>" + source[node.key] + "\n\n" + source[node.otherKey] +"</pre>";
+  }else{
+    quelltext.innerHTML="<pre>" + source[node.key] +"</pre>";
+  }
+  if (node.kiekerPattern != node.otherKiekerPattern) {
+  	histogramm.innerHTML=node.kiekerPattern + " " + node.otherKiekerPattern
+  } else {
+  	histogramm.innerHTML=node.kiekerPattern
+  }
   var version = {
     x: node.values,
     type: "histogram",

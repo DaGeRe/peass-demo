@@ -5,12 +5,12 @@
 [[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
 [[1;34mINFO[m] 
 [[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:2.5:clean[m [1m(default-clean)[m @ [36mdemo-project[0;1m ---[m
-[[1;34mINFO[m] Deleting /home/reichelt/workspaces/dissworkspace/demo/demo-project/target
+[[1;34mINFO[m] Deleting /home/reichelt/workspaces/dissworkspace/peass-demo/demo-project/target
 [[1;34mINFO[m] [1m------------------------------------------------------------------------[m
 [[1;34mINFO[m] [1;32mBUILD SUCCESS[m
 [[1;34mINFO[m] [1m------------------------------------------------------------------------[m
-[[1;34mINFO[m] Total time:  0.277 s
-[[1;34mINFO[m] Finished at: 2019-08-27T12:22:10+02:00
+[[1;34mINFO[m] Total time:  0.284 s
+[[1;34mINFO[m] Finished at: 2020-10-20T18:43:23+02:00
 [[1;34mINFO[m] [1m------------------------------------------------------------------------[m
 [[1;34mINFO[m] Scanning for projects...
 [[1;34mINFO[m] 
@@ -19,10 +19,10 @@
 [[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
 [[1;34mINFO[m] 
 [[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:2.5:clean[m [1m(default-clean)[m @ [36mdemo-project[0;1m ---[m
-[[1;34mINFO[m] Deleting /home/reichelt/workspaces/dissworkspace/demo/demo-project/target
+[[1;34mINFO[m] Deleting /home/reichelt/workspaces/dissworkspace/peass-demo/demo-project/target
 [[1;34mINFO[m] [1m------------------------------------------------------------------------[m
 [[1;34mINFO[m] [1;32mBUILD SUCCESS[m
 [[1;34mINFO[m] [1m------------------------------------------------------------------------[m
-[[1;34mINFO[m] Total time:  0.291 s
-[[1;34mINFO[m] Finished at: 2019-08-27T12:24:44+02:00
+[[1;34mINFO[m] Total time:  0.288 s
+[[1;34mINFO[m] Finished at: 2020-10-20T18:44:05+02:00
 [[1;34mINFO[m] [1m------------------------------------------------------------------------[m

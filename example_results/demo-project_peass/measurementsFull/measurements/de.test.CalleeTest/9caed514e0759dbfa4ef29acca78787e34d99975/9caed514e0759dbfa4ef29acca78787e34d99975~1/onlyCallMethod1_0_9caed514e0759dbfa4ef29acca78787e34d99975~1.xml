@@ -2,18 +2,21 @@
 <kopemedata>
  <testcases class="de.test.CalleeTest">
   <testcase name="onlyCallMethod1">
-   <datacollector name="de.dagere.kopeme.datacollection.TimeDataCollector">
-    <result date="1566901101313">
-     <value>0.0</value>
+   <datacollector name="de.dagere.kopeme.datacollection.TimeDataCollectorNoGC">
+    <result cpu="model name : Intel(R) Core(TM) i5 CPU 760@ 2.80GHz" memory="MemTotal: 16386464 kB" date="1603212109004">
+     <value>6272623.0</value>
      <deviation>0.0</deviation>
      <warmupExecutions>0</warmupExecutions>
      <executionTimes>1</executionTimes>
      <repetitions>1</repetitions>
-     <min>6611</min>
-     <max>6611</max>
-     <first10percentile>6611.0</first10percentile>
+     <min>6272623.0</min>
+     <max>6272623.0</max>
+     <showStart>false</showStart>
+     <redirectToTemp>false</redirectToTemp>
+     <redirectToNull>true</redirectToNull>
+     <javaVersion>1.8.0_265</javaVersion>
      <fulldata>
-      <value start="1566901101103">6611</value>
+      <value start="1603212108812">6272623</value>
      </fulldata>
     </result>
    </datacollector>

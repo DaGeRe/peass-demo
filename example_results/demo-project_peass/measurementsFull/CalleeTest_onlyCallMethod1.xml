@@ -2,10 +2,10 @@
 <kopemedata>
  <testcases class="de.test.CalleeTest">
   <testcase name="onlyCallMethod1">
-   <datacollector name="de.dagere.kopeme.datacollection.TimeDataCollector">
-    <chunk chunkStartTime="1566901092491">
-     <result>
-      <value>6611.0</value>
+   <datacollector name="de.dagere.kopeme.datacollection.TimeDataCollectorNoGC">
+    <chunk chunkStartTime="1603212100660">
+     <result date="1603212109004">
+      <value>6272623.0</value>
       <deviation>0.0</deviation>
       <warmupExecutions>0</warmupExecutions>
       <executionTimes>1</executionTimes>
@@ -13,11 +13,11 @@
       <version>
        <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975~1</gitversion>
       </version>
-      <min>6611</min>
-      <max>6611</max>
+      <min>6272623.0</min>
+      <max>6272623.0</max>
      </result>
-     <result>
-      <value>16528.0</value>
+     <result date="1603212117812">
+      <value>1.6272686E7</value>
       <deviation>0.0</deviation>
       <warmupExecutions>0</warmupExecutions>
       <executionTimes>1</executionTimes>
@@ -25,11 +25,11 @@
       <version>
        <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975</gitversion>
       </version>
-      <min>16528</min>
-      <max>16528</max>
+      <min>1.6272686E7</min>
+      <max>1.6272686E7</max>
      </result>
-     <result>
-      <value>6285.0</value>
+     <result date="1603212126385">
+      <value>6585567.0</value>
       <deviation>0.0</deviation>
       <warmupExecutions>0</warmupExecutions>
       <executionTimes>1</executionTimes>
@@ -37,11 +37,11 @@
       <version>
        <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975~1</gitversion>
       </version>
-      <min>6285</min>
-      <max>6285</max>
+      <min>6585567.0</min>
+      <max>6585567.0</max>
      </result>
-     <result>
-      <value>16317.0</value>
+     <result date="1603212135150">
+      <value>1.6250812E7</value>
       <deviation>0.0</deviation>
       <warmupExecutions>0</warmupExecutions>
       <executionTimes>1</executionTimes>
@@ -49,158 +49,158 @@
       <version>
        <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975</gitversion>
       </version>
-      <min>16317</min>
-      <max>16317</max>
+      <min>1.6250812E7</min>
+      <max>1.6250812E7</max>
      </result>
     </chunk>
-    <chunk chunkStartTime="1566901169282">
-     <result>
-      <value>5202.785999999998</value>
-      <deviation>80.81077258591101</deviation>
-      <warmupExecutions>500</warmupExecutions>
-      <executionTimes>500</executionTimes>
+    <chunk chunkStartTime="1603212157313">
+     <result date="1603212168061">
+      <value>5.35826021E8</value>
+      <deviation>0.0</deviation>
+      <warmupExecutions>0</warmupExecutions>
+      <executionTimes>1</executionTimes>
       <repetitions>100</repetitions>
       <version>
        <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975~1</gitversion>
       </version>
-      <min>5095</min>
-      <max>6202</max>
+      <min>5.35826021E8</min>
+      <max>5.35826021E8</max>
      </result>
-     <result>
-      <value>15205.344000000005</value>
-      <deviation>54.20466728900662</deviation>
-      <warmupExecutions>500</warmupExecutions>
-      <executionTimes>500</executionTimes>
+     <result date="1603212179845">
+      <value>1.550162135E9</value>
+      <deviation>0.0</deviation>
+      <warmupExecutions>0</warmupExecutions>
+      <executionTimes>1</executionTimes>
       <repetitions>100</repetitions>
       <version>
        <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975</gitversion>
       </version>
-      <min>15105</min>
-      <max>15521</max>
+      <min>1.550162135E9</min>
+      <max>1.550162135E9</max>
      </result>
-     <result>
-      <value>5208.542000000007</value>
-      <deviation>54.07854671150899</deviation>
-      <warmupExecutions>500</warmupExecutions>
-      <executionTimes>500</executionTimes>
+     <result date="1603212189425">
+      <value>5.49424737E8</value>
+      <deviation>0.0</deviation>
+      <warmupExecutions>0</warmupExecutions>
+      <executionTimes>1</executionTimes>
       <repetitions>100</repetitions>
       <version>
        <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975~1</gitversion>
       </version>
-      <min>5100</min>
-      <max>5420</max>
+      <min>5.49424737E8</min>
+      <max>5.49424737E8</max>
      </result>
-     <result>
-      <value>15201.825999999992</value>
-      <deviation>51.78516322519943</deviation>
-      <warmupExecutions>500</warmupExecutions>
-      <executionTimes>500</executionTimes>
+     <result date="1603212199973">
+      <value>1.54737338E9</value>
+      <deviation>0.0</deviation>
+      <warmupExecutions>0</warmupExecutions>
+      <executionTimes>1</executionTimes>
       <repetitions>100</repetitions>
       <version>
        <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975</gitversion>
       </version>
-      <min>15109</min>
-      <max>15466</max>
+      <min>1.54737338E9</min>
+      <max>1.54737338E9</max>
      </result>
     </chunk>
-    <chunk chunkStartTime="1566901326583">
-     <result>
-      <value>5216.721999999997</value>
-      <deviation>139.92745298975598</deviation>
-      <warmupExecutions>500</warmupExecutions>
-      <executionTimes>500</executionTimes>
+    <chunk chunkStartTime="1603212200574">
+     <result date="1603212209586">
+      <value>5.49246762E8</value>
+      <deviation>0.0</deviation>
+      <warmupExecutions>0</warmupExecutions>
+      <executionTimes>1</executionTimes>
       <repetitions>100</repetitions>
       <version>
        <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975~1</gitversion>
       </version>
-      <min>5104</min>
-      <max>7678</max>
+      <min>5.49246762E8</min>
+      <max>5.49246762E8</max>
      </result>
-     <result>
-      <value>15238.263999999994</value>
-      <deviation>93.5307988025831</deviation>
-      <warmupExecutions>500</warmupExecutions>
-      <executionTimes>500</executionTimes>
+     <result date="1603212220565">
+      <value>1.550432879E9</value>
+      <deviation>0.0</deviation>
+      <warmupExecutions>0</warmupExecutions>
+      <executionTimes>1</executionTimes>
       <repetitions>100</repetitions>
       <version>
        <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975</gitversion>
       </version>
-      <min>15138</min>
-      <max>16604</max>
+      <min>1.550432879E9</min>
+      <max>1.550432879E9</max>
      </result>
-     <result>
-      <value>5223.275999999999</value>
-      <deviation>56.10050228574984</deviation>
-      <warmupExecutions>500</warmupExecutions>
-      <executionTimes>500</executionTimes>
+     <result date="1603212230461">
+      <value>5.48887429E8</value>
+      <deviation>0.0</deviation>
+      <warmupExecutions>0</warmupExecutions>
+      <executionTimes>1</executionTimes>
       <repetitions>100</repetitions>
       <version>
        <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975~1</gitversion>
       </version>
-      <min>5087</min>
-      <max>5528</max>
+      <min>5.48887429E8</min>
+      <max>5.48887429E8</max>
      </result>
-     <result>
-      <value>15236.390000000001</value>
-      <deviation>204.32203230628755</deviation>
-      <warmupExecutions>500</warmupExecutions>
-      <executionTimes>500</executionTimes>
+     <result date="1603212241175">
+      <value>1.551443657E9</value>
+      <deviation>0.0</deviation>
+      <warmupExecutions>0</warmupExecutions>
+      <executionTimes>1</executionTimes>
       <repetitions>100</repetitions>
       <version>
        <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975</gitversion>
       </version>
-      <min>15136</min>
-      <max>19604</max>
+      <min>1.551443657E9</min>
+      <max>1.551443657E9</max>
      </result>
     </chunk>
-    <chunk chunkStartTime="1566901481067">
-     <result>
-      <value>5205.627999999995</value>
-      <deviation>60.82302604272512</deviation>
-      <warmupExecutions>500</warmupExecutions>
-      <executionTimes>500</executionTimes>
+    <chunk chunkStartTime="1603212241763">
+     <result date="1603212251059">
+      <value>5.4624892E8</value>
+      <deviation>0.0</deviation>
+      <warmupExecutions>0</warmupExecutions>
+      <executionTimes>1</executionTimes>
       <repetitions>100</repetitions>
       <version>
        <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975~1</gitversion>
       </version>
-      <min>5095</min>
-      <max>5523</max>
+      <min>5.4624892E8</min>
+      <max>5.4624892E8</max>
      </result>
-     <result>
-      <value>15205.560000000003</value>
-      <deviation>60.522130303823346</deviation>
-      <warmupExecutions>500</warmupExecutions>
-      <executionTimes>500</executionTimes>
+     <result date="1603212261887">
+      <value>1.546273337E9</value>
+      <deviation>0.0</deviation>
+      <warmupExecutions>0</warmupExecutions>
+      <executionTimes>1</executionTimes>
       <repetitions>100</repetitions>
       <version>
        <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975</gitversion>
       </version>
-      <min>15091</min>
-      <max>15455</max>
+      <min>1.546273337E9</min>
+      <max>1.546273337E9</max>
      </result>
-     <result>
-      <value>5173.795999999994</value>
-      <deviation>220.11124529339526</deviation>
-      <warmupExecutions>500</warmupExecutions>
-      <executionTimes>500</executionTimes>
+     <result date="1603212271765">
+      <value>5.45743398E8</value>
+      <deviation>0.0</deviation>
+      <warmupExecutions>0</warmupExecutions>
+      <executionTimes>1</executionTimes>
       <repetitions>100</repetitions>
       <version>
        <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975~1</gitversion>
       </version>
-      <min>5094</min>
-      <max>9953</max>
+      <min>5.45743398E8</min>
+      <max>5.45743398E8</max>
      </result>
-     <result>
-      <value>15169.292</value>
-      <deviation>80.19764373172234</deviation>
-      <warmupExecutions>500</warmupExecutions>
-      <executionTimes>500</executionTimes>
+     <result date="1603212283735">
+      <value>1.543529286E9</value>
+      <deviation>0.0</deviation>
+      <warmupExecutions>0</warmupExecutions>
+      <executionTimes>1</executionTimes>
       <repetitions>100</repetitions>
       <version>
        <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975</gitversion>
       </version>
-      <min>15099</min>
-      <max>16770</max>
+      <min>1.543529286E9</min>
+      <max>1.543529286E9</max>
      </result>
     </chunk>
    </datacollector>

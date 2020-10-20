@@ -5,10 +5,10 @@
 [[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
 [[1;34mINFO[m] 
 [[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:2.5:clean[m [1m(default-clean)[m @ [36mdemo-project[0;1m ---[m
-[[1;34mINFO[m] Deleting /home/reichelt/workspaces/dissworkspace/demo/demo-project/target
+[[1;34mINFO[m] Deleting /home/reichelt/workspaces/dissworkspace/peass-demo/demo-project/target
 [[1;34mINFO[m] [1m------------------------------------------------------------------------[m
 [[1;34mINFO[m] [1;32mBUILD SUCCESS[m
 [[1;34mINFO[m] [1m------------------------------------------------------------------------[m
-[[1;34mINFO[m] Total time:  0.301 s
-[[1;34mINFO[m] Finished at: 2019-08-27T12:20:07+02:00
+[[1;34mINFO[m] Total time:  0.294 s
+[[1;34mINFO[m] Finished at: 2020-10-20T18:42:53+02:00
 [[1;34mINFO[m] [1m------------------------------------------------------------------------[m
