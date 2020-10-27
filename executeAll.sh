@@ -21,3 +21,22 @@ echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
 
 echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
 ./peass visualizerca -data ../demo-project_peass -propertyFolder results/properties_demo-project/
+
+#Check, if changes_demo-project.json contains the correct commit-SHA
+cd ../demo-project
+right_sha="$(git rev-parse HEAD)"
+cd ../peass
+(
+	test_sha=$(grep -A1 'versionChanges" : {' results/changes_demo-project.json | grep -v '"versionChanges' | grep -Po '"\K.*(?=")')
+	if [ "$right_sha" != "$test_sha" ]
+		then
+			echo "commit-SHA is not equal to the SHA in changes_demo-project.json!"
+			exit 1
+		else
+			echo "changes_demo-project.json contains the correct commit-SHA."
+	fi
+) && true
+
+if [ $? -ne 0 ]
+	then exit 1
+fi
