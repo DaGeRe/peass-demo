@@ -40,3 +40,15 @@ cd ../peass
 if [ $? -ne 0 ]
 	then exit 1
 fi
+
+#Check, if a slowdown is detected for innerMethod
+(
+	state=$(grep -A20 '"call" : "de.test.Callee#innerMethod",' results/9caed514e0759dbfa4ef29acca78787e34d99975/de.test.CalleeTest#onlyCallMethod1.html | grep '"state" : "SLOWER",' | grep -o 'SLOWER')
+	if [ "$state" != "SLOWER" ]
+		then
+			echo "State for de.test.Callee#innerMethod in de.test.CalleeTest#onlyCallMethod1.html has not the expected value SLOWER!"
+			exit 1
+		else
+			echo "Slowdown is detected for innerMethod."
+	fi
+) && true
