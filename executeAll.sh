@@ -17,7 +17,7 @@ echo "::::::::::::::::::::GETCHANGES::::::::::::::::::::::::::::::::::::::::"
 ./peass getchanges -data ../demo-project_peass/ -dependencyfile results/deps_demo-project.json
 
 # If minor updates to the project occur, the version name may change
-version=$(cat peass/results/execute_demo-project.json | grep "versions" -A 1 | grep -v "version" | tr -d "\": {")
+version=$(cat results/execute_demo-project.json | grep "versions" -A 1 | grep -v "version" | tr -d "\": {")
 echo "Version: $version"
 
 echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
