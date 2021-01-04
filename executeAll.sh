@@ -6,7 +6,7 @@ git clone https://github.com/DaGeRe/peass.git && \
 	DEMO_HOME=$(pwd)/../demo-project && \
 	mvn clean install -DskipTests=true -V
 
-# It is assumed that $PEASS_HOME is set correctly and PeASS has been built!
+# It is assumed that $DEMO_HOME is set correctly and PeASS has been built!
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
 ./peass select -folder $DEMO_HOME
 
