@@ -4,7 +4,7 @@ tar -xf demo-project.tar.xz
 git clone https://github.com/DaGeRe/peass.git && \
 	cd peass && \
 	DEMO_HOME=$(pwd)/../demo-project && \
-	mvn clean install -DskipTests=true
+	mvn clean install -DskipTests=true -V
 
 # It is assumed that $PEASS_HOME is set correctly and PeASS has been built!
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
