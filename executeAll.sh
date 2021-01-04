@@ -4,9 +4,9 @@ tar -xf demo-project.tar.xz
 git clone https://github.com/DaGeRe/peass.git && \
 	cd peass && \
 	DEMO_HOME=$(pwd)/../demo-project && \
-	mvn clean install -DskipTests=true
+	mvn clean install -DskipTests=true -V
 
-# It is assumed that $PEASS_HOME is set correctly and PeASS has been built!
+# It is assumed that $DEMO_HOME is set correctly and PeASS has been built!
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
 ./peass select -folder $DEMO_HOME
 
@@ -43,7 +43,7 @@ fi
 
 #Check, if a slowdown is detected for innerMethod
 (
-	state=$(grep -A20 '"call" : "de.test.Callee#innerMethod",' results/9caed514e0759dbfa4ef29acca78787e34d99975/de.test.CalleeTest#onlyCallMethod1.html | grep '"state" : "SLOWER",' | grep -o 'SLOWER')
+	state=$(grep -A20 '"call" : "de.test.Callee#innerMethod",' results/9caed514e0759dbfa4ef29acca78787e34d99975/de.test.CalleeTest_onlyCallMethod1.js | grep '"state" : "SLOWER",' | grep -o 'SLOWER')
 	if [ "$state" != "SLOWER" ]
 		then
 			echo "State for de.test.Callee#innerMethod in de.test.CalleeTest#onlyCallMethod1.html has not the expected value SLOWER!"
