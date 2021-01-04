@@ -16,8 +16,12 @@ echo ":::::::::::::::::::::MEASURE::::::::::::::::::::::::::::::::::::::::::"
 echo "::::::::::::::::::::GETCHANGES::::::::::::::::::::::::::::::::::::::::"
 ./peass getchanges -data ../demo-project_peass/ -dependencyfile results/deps_demo-project.json
 
+# If minor updates to the project occur, the version name may change
+version=$(cat peass/results/execute_demo-project.json | grep "versions" -A 1 | grep -v "version" | tr -d "\": {")
+echo "Version: $version"
+
 echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
-./peass searchcause -vms 2 -iterations 1 -warmup 0 -version 9caed514e0759dbfa4ef29acca78787e34d99975 -test de.test.CalleeTest\#onlyCallMethod1 -folder $DEMO_HOME -executionfile results/execute_demo-project.json
+./peass searchcause -vms 2 -iterations 1 -warmup 0 -version $version -test de.test.CalleeTest\#onlyCallMethod1 -folder $DEMO_HOME -executionfile results/execute_demo-project.json
 
 echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
 ./peass visualizerca -data ../demo-project_peass -propertyFolder results/properties_demo-project/
@@ -43,7 +47,7 @@ fi
 
 #Check, if a slowdown is detected for innerMethod
 (
-	state=$(grep -A20 '"call" : "de.test.Callee#innerMethod",' results/9caed514e0759dbfa4ef29acca78787e34d99975/de.test.CalleeTest_onlyCallMethod1.js | grep '"state" : "SLOWER",' | grep -o 'SLOWER')
+	state=$(grep -A6 '"call" : "de.test.Callee#innerMethod",' results/$version/de.test.CalleeTest_onlyCallMethod1.js | grep '"state" : "SLOWER",' | grep -o 'SLOWER')
 	if [ "$state" != "SLOWER" ]
 		then
 			echo "State for de.test.Callee#innerMethod in de.test.CalleeTest#onlyCallMethod1.html has not the expected value SLOWER!"
