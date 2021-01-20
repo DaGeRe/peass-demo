@@ -33,11 +33,11 @@ cd ../peass
 (
 	test_sha=$(grep -A1 'versionChanges" : {' results/changes_demo-project.json | grep -v '"versionChanges' | grep -Po '"\K.*(?=")')
 	if [ "$right_sha" != "$test_sha" ]
-		then
-			echo "commit-SHA is not equal to the SHA in changes_demo-project.json!"
-			exit 1
-		else
-			echo "changes_demo-project.json contains the correct commit-SHA."
+	then
+		echo "commit-SHA is not equal to the SHA in changes_demo-project.json!"
+		exit 1
+	else
+		echo "changes_demo-project.json contains the correct commit-SHA."
 	fi
 ) && true
 
@@ -49,10 +49,11 @@ fi
 (
 	state=$(grep '"call" : "de.test.Callee#innerMethod",\|state' results/$version/de.test.CalleeTest_onlyCallMethod1.js | head -n 2 | grep '"state" : "SLOWER",' | grep -o 'SLOWER')
 	if [ "$state" != "SLOWER" ]
-		then
-			echo "State for de.test.Callee#innerMethod in de.test.CalleeTest#onlyCallMethod1.html has not the expected value SLOWER!"
-			exit 1
-		else
-			echo "Slowdown is detected for innerMethod."
+	then
+		echo "State for de.test.Callee#innerMethod in de.test.CalleeTest#onlyCallMethod1.html has not the expected value SLOWER!"
+		cat results/$version/de.test.CalleeTest_onlyCallMethod1.js
+		exit 1
+	else
+		echo "Slowdown is detected for innerMethod."
 	fi
 ) && true
