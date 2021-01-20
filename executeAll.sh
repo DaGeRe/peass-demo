@@ -47,10 +47,10 @@ fi
 
 #Check, if a slowdown is detected for innerMethod
 (
-	state=$(grep '"call" : "de.test.Callee#innerMethod",\|state' results/$version/de.test.CalleeTest_onlyCallMethod1.js | head -n 2 | grep '"state" : "SLOWER",' | grep -o 'SLOWER')
+	state=$(grep '"call" : "de.test.Callee#innerMethod",\|state' results/$version/de.test.CalleeTest_onlyCallMethod1.js | grep "innerMethod" -A 1 | grep '"state" : "SLOWER",' | grep -o 'SLOWER')
 	if [ "$state" != "SLOWER" ]
 	then
-		echo "State for de.test.Callee#innerMethod in de.test.CalleeTest#onlyCallMethod1.html has not the expected value SLOWER!"
+		echo "State for de.test.Callee#innerMethod in de.test.CalleeTest#onlyCallMethod1.html has not the expected value SLOWER, but was $state!"
 		cat results/$version/de.test.CalleeTest_onlyCallMethod1.js
 		exit 1
 	else
