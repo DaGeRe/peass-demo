@@ -35,6 +35,7 @@ cd ../peass
 	if [ "$right_sha" != "$test_sha" ]
 	then
 		echo "commit-SHA is not equal to the SHA in changes_demo-project.json!"
+		cat results/statistics/demo-project.json
 		exit 1
 	else
 		echo "changes_demo-project.json contains the correct commit-SHA."
