@@ -21,7 +21,9 @@ then
 	ls ../demo-project_peass/logs/
 	echo "projektTemp"
 	ls ../demo-project_peass/projectTemp/
-	cat ../demo-project_peass/logs/$right_sha/*/*
+	ls ../demo-project_peass/projectTemp/1_peass/
+	ls ../demo-project_peass/projectTemp/1_peass/logs/
+	cat ../demo-project_peass/projectTemp/1_peass/logs/$right_sha/*/*
 	exit 1
 fi
 
