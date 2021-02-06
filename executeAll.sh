@@ -16,8 +16,11 @@ echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
 
 if [ ! -f results/execute_demo-project.json ]
 then
+	echo "Main Logs"
 	ls ../demo-project_peass/
 	ls ../demo-project_peass/logs/
+	echo "projektTemp"
+	ls ../demo-project_peass/projectTemp/
 	cat ../demo-project_peass/logs/$right_sha/*/*
 	exit 1
 fi
