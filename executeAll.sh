@@ -6,9 +6,19 @@ git clone https://github.com/DaGeRe/peass.git && \
 	DEMO_HOME=$(pwd)/../demo-project && \
 	mvn clean install -DskipTests=true -V
 
+right_sha="$(cd ../demo-project && git rev-parse HEAD)"
+
 # It is assumed that $DEMO_HOME is set correctly and PeASS has been built!
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
-./peass select -folder $DEMO_HOME
+(
+	./peass select -folder $DEMO_HOME
+) && true
+
+if [ ! -f results/execute_demo-project.json ]
+then
+	cat ../demo-project_peass/logs/$right_sha/*/*
+	exit 1
+fi
 
 echo ":::::::::::::::::::::MEASURE::::::::::::::::::::::::::::::::::::::::::"
 ./peass measure -executionfile results/execute_demo-project.json -folder $DEMO_HOME -iterations 1 -warmup 0 -repetitions 1 -vms 2
@@ -16,20 +26,7 @@ echo ":::::::::::::::::::::MEASURE::::::::::::::::::::::::::::::::::::::::::"
 echo "::::::::::::::::::::GETCHANGES::::::::::::::::::::::::::::::::::::::::"
 ./peass getchanges -data ../demo-project_peass/ -dependencyfile results/deps_demo-project.json
 
-# If minor updates to the project occur, the version name may change
-version=$(cat results/execute_demo-project.json | grep "versions" -A 1 | grep -v "version" | tr -d "\": {")
-echo "Version: $version"
-
-echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
-./peass searchcause -vms 5 -iterations 1 -warmup 0 -version $version -test de.test.CalleeTest\#onlyCallMethod1 -folder $DEMO_HOME -executionfile results/execute_demo-project.json
-
-echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
-./peass visualizerca -data ../demo-project_peass -propertyFolder results/properties_demo-project/
-
 #Check, if changes_demo-project.json contains the correct commit-SHA
-cd ../demo-project
-right_sha="$(git rev-parse HEAD)"
-cd ../peass
 (
 	test_sha=$(grep -A1 'versionChanges" : {' results/changes_demo-project.json | grep -v '"versionChanges' | grep -Po '"\K.*(?=")')
 	if [ "$right_sha" != "$test_sha" ]
@@ -41,6 +38,17 @@ cd ../peass
 		echo "changes_demo-project.json contains the correct commit-SHA."
 	fi
 ) && true
+
+# If minor updates to the project occur, the version name may change
+version=$(cat results/execute_demo-project.json | grep "versions" -A 1 | grep -v "version" | tr -d "\": {")
+echo "Version: $version"
+
+echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
+./peass searchcause -vms 5 -iterations 1 -warmup 0 -version $version -test de.test.CalleeTest\#onlyCallMethod1 -folder $DEMO_HOME -executionfile results/execute_demo-project.json
+
+echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
+./peass visualizerca -data ../demo-project_peass -propertyFolder results/properties_demo-project/
+
 
 if [ $? -ne 0 ]
 	then exit 1
