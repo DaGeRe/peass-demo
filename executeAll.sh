@@ -23,6 +23,7 @@ then
 	ls ../demo-project_peass/projectTemp/
 	ls ../demo-project_peass/projectTemp/1_peass/
 	ls ../demo-project_peass/projectTemp/1_peass/logs/
+	cat ../demo-project_peass/projectTemp/1_peass/logs/bf6d4897d8b13dcdc23d0e29d9b3b1791dec9d34/*/* 
 	cat ../demo-project_peass/projectTemp/1_peass/logs/$right_sha/*/*
 	exit 1
 fi
