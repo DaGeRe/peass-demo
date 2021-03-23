@@ -1,3 +1,0 @@
-public void method1() {
-    innerMethod();
-}
