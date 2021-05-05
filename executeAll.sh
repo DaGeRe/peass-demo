@@ -76,7 +76,7 @@ fi
 ) && true
 
 (
-	sourceMethodLine=$(grep "de.test.Callee.method1_" results/$version/de.test.CalleeTest_onlyCallMethod1.js -A 3 | head -n 3 | grep innerMethod)
+	sourceMethodLine=$(grep "\"key\"" results/$version/de.test.CalleeTest_onlyCallMethod1.js | grep "de.test.Callee.method1_" -A 1 | tail -n 1 | grep innerMethod)
 	if [[ "$sourceMethodLine" != *"innerMethod();" ]]
 	then
 		echo "Line could not be detected - source reading probably failed."
