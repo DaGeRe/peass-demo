@@ -4,7 +4,7 @@ tar -xf demo-project.tar.xz
 git clone https://github.com/DaGeRe/peass.git && \
 	cd peass && \
 	DEMO_HOME=$(pwd)/../demo-project && \
-	mvn clean install -DskipTests=true -V
+	./mvnw clean install -DskipTests=true -V
 
 right_sha="$(cd ../demo-project && git rev-parse HEAD)"
 
