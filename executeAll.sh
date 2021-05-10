@@ -10,9 +10,7 @@ right_sha="$(cd ../demo-project && git rev-parse HEAD)"
 
 # It is assumed that $DEMO_HOME is set correctly and PeASS has been built!
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
-(
-	./peass select -folder $DEMO_HOME
-) && true
+./peass select -folder $DEMO_HOME
 
 if [ ! -f results/execute_demo-project.json ]
 then
@@ -35,17 +33,15 @@ echo "::::::::::::::::::::GETCHANGES::::::::::::::::::::::::::::::::::::::::"
 ./peass getchanges -data ../demo-project_peass/ -dependencyfile results/deps_demo-project.json
 
 #Check, if changes_demo-project.json contains the correct commit-SHA
-(
-	test_sha=$(grep -A1 'versionChanges" : {' results/changes_demo-project.json | grep -v '"versionChanges' | grep -Po '"\K.*(?=")')
-	if [ "$right_sha" != "$test_sha" ]
-	then
-		echo "commit-SHA is not equal to the SHA in changes_demo-project.json!"
-		cat results/statistics/demo-project.json
-		exit 1
-	else
-		echo "changes_demo-project.json contains the correct commit-SHA."
-	fi
-) && true
+test_sha=$(grep -A1 'versionChanges" : {' results/changes_demo-project.json | grep -v '"versionChanges' | grep -Po '"\K.*(?=")')
+if [ "$right_sha" != "$test_sha" ]
+then
+    echo "commit-SHA is not equal to the SHA in changes_demo-project.json!"
+    cat results/statistics/demo-project.json
+    exit 1
+else
+    echo "changes_demo-project.json contains the correct commit-SHA."
+fi
 
 # If minor updates to the project occur, the version name may change
 version=$(cat results/execute_demo-project.json | grep "versions" -A 4 | tail -n 1 | tr -d "\": {")
@@ -57,31 +53,22 @@ echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
 echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
 ./peass visualizerca -data ../demo-project_peass -propertyFolder results/properties_demo-project/
 
-
-if [ $? -ne 0 ]
-	then exit 1
+#Check, if a slowdown is detected for innerMethod
+state=$(grep '"call" : "de.test.Callee#innerMethod",\|state' results/$version/de.test.CalleeTest_onlyCallMethod1.js | grep "innerMethod" -A 1 | grep '"state" : "SLOWER",' | grep -o 'SLOWER')
+if [ "$state" != "SLOWER" ]
+then
+    echo "State for de.test.Callee#innerMethod in de.test.CalleeTest#onlyCallMethod1.html has not the expected value SLOWER, but was $state!"
+    cat results/$version/de.test.CalleeTest_onlyCallMethod1.js
+    exit 1
+else
+    echo "Slowdown is detected for innerMethod."
 fi
 
-#Check, if a slowdown is detected for innerMethod
-(
-	state=$(grep '"call" : "de.test.Callee#innerMethod",\|state' results/$version/de.test.CalleeTest_onlyCallMethod1.js | grep "innerMethod" -A 1 | grep '"state" : "SLOWER",' | grep -o 'SLOWER')
-	if [ "$state" != "SLOWER" ]
-	then
-		echo "State for de.test.Callee#innerMethod in de.test.CalleeTest#onlyCallMethod1.html has not the expected value SLOWER, but was $state!"
-		cat results/$version/de.test.CalleeTest_onlyCallMethod1.js
-		exit 1
-	else
-		echo "Slowdown is detected for innerMethod."
-	fi
-) && true
-
-(
-	sourceMethodLine=$(grep "de.test.Callee.method1_" results/$version/de.test.CalleeTest_onlyCallMethod1.js -A 3 | head -n 3 | grep innerMethod)
-	if [[ "$sourceMethodLine" != *"innerMethod();" ]]
-	then
-		echo "Line could not be detected - source reading probably failed."
-		echo "Line: "
-		echo $sourceMethodLine
-		exit 1
-	fi
-) && true
+sourceMethodLine=$(grep "de.test.Callee.method1_" results/$version/de.test.CalleeTest_onlyCallMethod1.js -A 3 | head -n 3 | grep innerMethod)
+if [[ "$sourceMethodLine" != *"innerMethod();" ]]
+then
+    echo "Line could not be detected - source reading probably failed."
+    echo "Line: "
+    echo $sourceMethodLine
+    exit 1
+fi
