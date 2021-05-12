@@ -44,7 +44,7 @@ else
 fi
 
 # If minor updates to the project occur, the version name may change
-version=$(cat results/execute_demo-project.json | grep "versions" -A 4 | tail -n 1 | tr -d "\": {")
+version=$(grep '"testcases" :' -B 1 results/execute_demo-project.json | head -n 1 | tr -d "\": {")
 echo "Version: $version"
 
 echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
