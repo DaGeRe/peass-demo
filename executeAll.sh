@@ -6,14 +6,14 @@ git clone https://github.com/DaGeRe/peass.git && \
 
 DEMO_HOME=$(pwd)/../demo-project
 DEMO_PROJECT_PEASS=../demo-project_peass
-EXECUTE_FILE=results/execute_demo-project.json
+EXECUTION_FILE=results/execute_demo-project.json
 right_sha="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 
 # It is assumed that $DEMO_HOME is set correctly and PeASS has been built!
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
 ./peass select -folder $DEMO_HOME
 
-if [ ! -f "$EXECUTE_FILE" ]
+if [ ! -f "$EXECUTION_FILE" ]
 then
 	echo "Main Logs"
 	ls ../demo-project_peass/
@@ -28,7 +28,7 @@ then
 fi
 
 echo ":::::::::::::::::::::MEASURE::::::::::::::::::::::::::::::::::::::::::"
-./peass measure -executionfile $EXECUTE_FILE -folder $DEMO_HOME -iterations 1 -warmup 0 -repetitions 1 -vms 2
+./peass measure -executionfile $EXECUTION_FILE -folder $DEMO_HOME -iterations 1 -warmup 0 -repetitions 1 -vms 2
 
 echo "::::::::::::::::::::GETCHANGES::::::::::::::::::::::::::::::::::::::::"
 ./peass getchanges -data $DEMO_PROJECT_PEASS -dependencyfile results/deps_demo-project.json
@@ -45,11 +45,11 @@ else
 fi
 
 # If minor updates to the project occur, the version name may change
-version=$(grep '"testcases" :' -B 1 $EXECUTE_FILE | head -n 1 | tr -d "\": {")
+version=$(grep '"testcases" :' -B 1 $EXECUTION_FILE | head -n 1 | tr -d "\": {")
 echo "Version: $version"
 
 echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
-./peass searchcause -vms 5 -iterations 1 -warmup 0 -version $version -test de.test.CalleeTest\#onlyCallMethod1 -folder $DEMO_HOME -executionfile $EXECUTE_FILE
+./peass searchcause -vms 5 -iterations 1 -warmup 0 -version $version -test de.test.CalleeTest\#onlyCallMethod1 -folder $DEMO_HOME -executionfile $EXECUTION_FILE
 
 echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
 ./peass visualizerca -data ../demo-project_peass -propertyFolder results/properties_demo-project/
