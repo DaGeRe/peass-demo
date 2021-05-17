@@ -1,14 +1,17 @@
 #!/bin/bash
-tar -xf demo-project.tar.xz
+DEMO_PROJECT_NAME=demo-project
+
+tar -xf "$DEMO_PROJECT_NAME".tar.xz
 git clone https://github.com/DaGeRe/peass.git && \
 	cd peass && \
 	./mvnw clean install -DskipTests=true -V
 
-DEMO_HOME=$(pwd)/../demo-project
-DEMO_PROJECT_PEASS=../demo-project_peass
-EXECUTION_FILE=results/execute_demo-project.json
-DEPENDENCY_FILE=results/deps_demo-project.json
-CHANGES_DEMO_PROJECT=results/changes_demo-project.json
+DEMO_HOME=$(pwd)/../$DEMO_PROJECT_NAME
+DEMO_PROJECT_PEASS=../"$DEMO_PROJECT_NAME"_peass
+EXECUTION_FILE=results/execute_"$DEMO_PROJECT_NAME".json
+DEPENDENCY_FILE=results/deps_"$DEMO_PROJECT_NAME".json
+CHANGES_DEMO_PROJECT=results/changes_"$DEMO_PROJECT_NAME".json
+PROPERTY_FOLDER=results/properties_"$DEMO_PROJECT_NAME"/
 
 RIGHT_SHA="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 
@@ -35,7 +38,7 @@ TEST_SHA=$(grep -A1 'versionChanges" : {' $CHANGES_DEMO_PROJECT | grep -v '"vers
 if [ "$RIGHT_SHA" != "$TEST_SHA" ]
 then
     echo "commit-SHA is not equal to the SHA in $CHANGES_DEMO_PROJECT"
-    cat results/statistics/demo-project.json
+    cat results/statistics/"$DEMO_PROJECT_NAME".json
     exit 1
 else
     echo "$CHANGES_DEMO_PROJECT contains the correct commit-SHA."
@@ -49,7 +52,7 @@ echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
 ./peass searchcause -vms 5 -iterations 1 -warmup 0 -version $VERSION -test de.test.CalleeTest\#onlyCallMethod1 -folder $DEMO_HOME -executionfile $EXECUTION_FILE
 
 echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
-./peass visualizerca -data $DEMO_PROJECT_PEASS -propertyFolder results/properties_demo-project/
+./peass visualizerca -data $DEMO_PROJECT_PEASS -propertyFolder $PROPERTY_FOLDER
 
 #Check, if a slowdown is detected for innerMethod
 STATE=$(grep '"call" : "de.test.Callee#innerMethod",\|state' results/$VERSION/de.test.CalleeTest_onlyCallMethod1.js | grep "innerMethod" -A 1 | grep '"state" : "SLOWER",' | grep -o 'SLOWER')
