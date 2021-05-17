@@ -19,14 +19,14 @@ echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
 if [ ! -f "$EXECUTION_FILE" ]
 then
 	echo "Main Logs"
-	ls ../demo-project_peass/
-	ls ../demo-project_peass/logs/
+	ls $DEMO_PROJECT_PEASS
+	ls $DEMO_PROJECT_PEASS/logs/
 	echo "projektTemp"
-	ls ../demo-project_peass/projectTemp/
-	ls ../demo-project_peass/projectTemp/1_peass/
-	ls ../demo-project_peass/projectTemp/1_peass/logs/
-	cat ../demo-project_peass/projectTemp/1_peass/logs/bf6d4897d8b13dcdc23d0e29d9b3b1791dec9d34/*/* 
-	cat ../demo-project_peass/projectTemp/1_peass/logs/$RIGHT_SHA/*/*
+	ls $DEMO_PROJECT_PEASS/projectTemp/
+	ls $DEMO_PROJECT_PEASS/projectTemp/1_peass/
+	ls $DEMO_PROJECT_PEASS/projectTemp/1_peass/logs/
+	cat $DEMO_PROJECT_PEASS/projectTemp/1_peass/logs/bf6d4897d8b13dcdc23d0e29d9b3b1791dec9d34/*/*
+	cat $DEMO_PROJECT_PEASS/projectTemp/1_peass/logs/$RIGHT_SHA/*/*
 	exit 1
 fi
 
