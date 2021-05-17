@@ -3,10 +3,10 @@ set -e
 tar -xf demo-project.tar.xz
 git clone https://github.com/DaGeRe/peass.git && \
 	cd peass && \
-	DEMO_HOME=$(pwd)/../demo-project && \
 	./mvnw clean install -DskipTests=true -V
 
-right_sha="$(cd ../demo-project && git rev-parse HEAD)"
+DEMO_HOME=$(pwd)/../demo-project
+right_sha="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 
 # It is assumed that $DEMO_HOME is set correctly and PeASS has been built!
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
