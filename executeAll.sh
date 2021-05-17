@@ -7,6 +7,7 @@ git clone https://github.com/DaGeRe/peass.git && \
 DEMO_HOME=$(pwd)/../demo-project
 DEMO_PROJECT_PEASS=../demo-project_peass
 EXECUTION_FILE=results/execute_demo-project.json
+DEPENDENCY_FILE=results/deps_demo-project.json
 RIGHT_SHA="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 
 # It is assumed that $DEMO_HOME is set correctly and PeASS has been built!
@@ -31,7 +32,7 @@ echo ":::::::::::::::::::::MEASURE::::::::::::::::::::::::::::::::::::::::::"
 ./peass measure -executionfile $EXECUTION_FILE -folder $DEMO_HOME -iterations 1 -warmup 0 -repetitions 1 -vms 2
 
 echo "::::::::::::::::::::GETCHANGES::::::::::::::::::::::::::::::::::::::::"
-./peass getchanges -data $DEMO_PROJECT_PEASS -dependencyfile results/deps_demo-project.json
+./peass getchanges -data $DEMO_PROJECT_PEASS -dependencyfile $DEPENDENCY_FILE
 
 #Check, if changes_demo-project.json contains the correct commit-SHA
 TEST_SHA=$(grep -A1 'versionChanges" : {' results/changes_demo-project.json | grep -v '"versionChanges' | grep -Po '"\K.*(?=")')
