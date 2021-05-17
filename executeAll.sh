@@ -5,13 +5,15 @@ git clone https://github.com/DaGeRe/peass.git && \
 	./mvnw clean install -DskipTests=true -V
 
 DEMO_HOME=$(pwd)/../demo-project
+DEMO_PROJECT_PEASS=../demo-project_peass
+EXECUTE_FILE=results/execute_demo-project.json
 right_sha="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 
 # It is assumed that $DEMO_HOME is set correctly and PeASS has been built!
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
 ./peass select -folder $DEMO_HOME
 
-if [ ! -f results/execute_demo-project.json ]
+if [ ! -f "$EXECUTE_FILE" ]
 then
 	echo "Main Logs"
 	ls ../demo-project_peass/
@@ -26,10 +28,10 @@ then
 fi
 
 echo ":::::::::::::::::::::MEASURE::::::::::::::::::::::::::::::::::::::::::"
-./peass measure -executionfile results/execute_demo-project.json -folder $DEMO_HOME -iterations 1 -warmup 0 -repetitions 1 -vms 2
+./peass measure -executionfile $EXECUTE_FILE -folder $DEMO_HOME -iterations 1 -warmup 0 -repetitions 1 -vms 2
 
 echo "::::::::::::::::::::GETCHANGES::::::::::::::::::::::::::::::::::::::::"
-./peass getchanges -data ../demo-project_peass/ -dependencyfile results/deps_demo-project.json
+./peass getchanges -data $DEMO_PROJECT_PEASS -dependencyfile results/deps_demo-project.json
 
 #Check, if changes_demo-project.json contains the correct commit-SHA
 test_sha=$(grep -A1 'versionChanges" : {' results/changes_demo-project.json | grep -v '"versionChanges' | grep -Po '"\K.*(?=")')
@@ -43,11 +45,11 @@ else
 fi
 
 # If minor updates to the project occur, the version name may change
-version=$(grep '"testcases" :' -B 1 results/execute_demo-project.json | head -n 1 | tr -d "\": {")
+version=$(grep '"testcases" :' -B 1 $EXECUTE_FILE | head -n 1 | tr -d "\": {")
 echo "Version: $version"
 
 echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
-./peass searchcause -vms 5 -iterations 1 -warmup 0 -version $version -test de.test.CalleeTest\#onlyCallMethod1 -folder $DEMO_HOME -executionfile results/execute_demo-project.json
+./peass searchcause -vms 5 -iterations 1 -warmup 0 -version $version -test de.test.CalleeTest\#onlyCallMethod1 -folder $DEMO_HOME -executionfile $EXECUTE_FILE
 
 echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
 ./peass visualizerca -data ../demo-project_peass -propertyFolder results/properties_demo-project/
