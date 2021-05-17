@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 tar -xf demo-project.tar.xz
 git clone https://github.com/DaGeRe/peass.git && \
 	cd peass && \
