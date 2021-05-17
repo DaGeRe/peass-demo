@@ -8,6 +8,7 @@ DEMO_HOME=$(pwd)/../demo-project
 DEMO_PROJECT_PEASS=../demo-project_peass
 EXECUTION_FILE=results/execute_demo-project.json
 DEPENDENCY_FILE=results/deps_demo-project.json
+CHANGES_DEMO_PROJECT=results/changes_demo-project.json
 
 RIGHT_SHA="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 
@@ -35,15 +36,15 @@ echo ":::::::::::::::::::::MEASURE::::::::::::::::::::::::::::::::::::::::::"
 echo "::::::::::::::::::::GETCHANGES::::::::::::::::::::::::::::::::::::::::"
 ./peass getchanges -data $DEMO_PROJECT_PEASS -dependencyfile $DEPENDENCY_FILE
 
-#Check, if changes_demo-project.json contains the correct commit-SHA
-TEST_SHA=$(grep -A1 'versionChanges" : {' results/changes_demo-project.json | grep -v '"versionChanges' | grep -Po '"\K.*(?=")')
+#Check, if $CHANGES_DEMO_PROJECT contains the correct commit-SHA
+TEST_SHA=$(grep -A1 'versionChanges" : {' $CHANGES_DEMO_PROJECT | grep -v '"versionChanges' | grep -Po '"\K.*(?=")')
 if [ "$RIGHT_SHA" != "$TEST_SHA" ]
 then
-    echo "commit-SHA is not equal to the SHA in changes_demo-project.json!"
+    echo "commit-SHA is not equal to the SHA in $CHANGES_DEMO_PROJECT"
     cat results/statistics/demo-project.json
     exit 1
 else
-    echo "changes_demo-project.json contains the correct commit-SHA."
+    echo "$CHANGES_DEMO_PROJECT contains the correct commit-SHA."
 fi
 
 # If minor updates to the project occur, the version name may change
