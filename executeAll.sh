@@ -1,74 +1,83 @@
 #!/bin/bash
-set -e
-tar -xf demo-project.tar.xz
+DEMO_PROJECT_NAME=demo-project
+
+tar -xf "$DEMO_PROJECT_NAME".tar.xz
 git clone https://github.com/DaGeRe/peass.git && \
 	cd peass && \
-	DEMO_HOME=$(pwd)/../demo-project && \
 	./mvnw clean install -DskipTests=true -V
 
-right_sha="$(cd ../demo-project && git rev-parse HEAD)"
+DEMO_HOME=$(pwd)/../$DEMO_PROJECT_NAME
+DEMO_PROJECT_PEASS=../"$DEMO_PROJECT_NAME"_peass
+EXECUTION_FILE=results/execute_"$DEMO_PROJECT_NAME".json
+DEPENDENCY_FILE=results/deps_"$DEMO_PROJECT_NAME".json
+CHANGES_DEMO_PROJECT=results/changes_"$DEMO_PROJECT_NAME".json
+PROPERTY_FOLDER=results/properties_"$DEMO_PROJECT_NAME"/
+
+RIGHT_SHA="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 
 # It is assumed that $DEMO_HOME is set correctly and PeASS has been built!
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
 ./peass select -folder $DEMO_HOME
 
-if [ ! -f results/execute_demo-project.json ]
+if [ ! -f "$EXECUTION_FILE" ]
 then
-	echo "Main Logs"
-	ls ../demo-project_peass/
-	ls ../demo-project_peass/logs/
-	echo "projektTemp"
-	ls ../demo-project_peass/projectTemp/
-	ls ../demo-project_peass/projectTemp/1_peass/
-	ls ../demo-project_peass/projectTemp/1_peass/logs/
-	cat ../demo-project_peass/projectTemp/1_peass/logs/bf6d4897d8b13dcdc23d0e29d9b3b1791dec9d34/*/* 
-	cat ../demo-project_peass/projectTemp/1_peass/logs/$right_sha/*/*
-	exit 1
+    echo "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
+    echo "$EXECUTION_FILE could not be found!"
+    echo "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
+    exit 1
 fi
 
 echo ":::::::::::::::::::::MEASURE::::::::::::::::::::::::::::::::::::::::::"
-./peass measure -executionfile results/execute_demo-project.json -folder $DEMO_HOME -iterations 1 -warmup 0 -repetitions 1 -vms 2
+./peass measure -executionfile $EXECUTION_FILE -folder $DEMO_HOME -iterations 1 -warmup 0 -repetitions 1 -vms 2
 
 echo "::::::::::::::::::::GETCHANGES::::::::::::::::::::::::::::::::::::::::"
-./peass getchanges -data ../demo-project_peass/ -dependencyfile results/deps_demo-project.json
+./peass getchanges -data $DEMO_PROJECT_PEASS -dependencyfile $DEPENDENCY_FILE
 
-#Check, if changes_demo-project.json contains the correct commit-SHA
-test_sha=$(grep -A1 'versionChanges" : {' results/changes_demo-project.json | grep -v '"versionChanges' | grep -Po '"\K.*(?=")')
-if [ "$right_sha" != "$test_sha" ]
+#Check, if $CHANGES_DEMO_PROJECT contains the correct commit-SHA
+TEST_SHA=$(grep -A1 'versionChanges" : {' $CHANGES_DEMO_PROJECT | grep -v '"versionChanges' | grep -Po '"\K.*(?=")')
+if [ "$RIGHT_SHA" != "$TEST_SHA" ]
 then
-    echo "commit-SHA is not equal to the SHA in changes_demo-project.json!"
-    cat results/statistics/demo-project.json
+    echo "commit-SHA is not equal to the SHA in $CHANGES_DEMO_PROJECT"
+    cat results/statistics/"$DEMO_PROJECT_NAME".json
     exit 1
 else
-    echo "changes_demo-project.json contains the correct commit-SHA."
+    echo "$CHANGES_DEMO_PROJECT contains the correct commit-SHA."
 fi
 
 # If minor updates to the project occur, the version name may change
-version=$(grep '"testcases" :' -B 1 results/execute_demo-project.json | head -n 1 | tr -d "\": {")
-echo "Version: $version"
+VERSION=$(grep '"testcases" :' -B 1 $EXECUTION_FILE | head -n 1 | tr -d "\": {")
+echo "VERSION: $VERSION"
 
 echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
-./peass searchcause -vms 5 -iterations 1 -warmup 0 -version $version -test de.test.CalleeTest\#onlyCallMethod1 -folder $DEMO_HOME -executionfile results/execute_demo-project.json
+./peass searchcause -vms 5 -iterations 1 -warmup 0 -version $VERSION \
+    -test de.test.CalleeTest\#onlyCallMethod1 \
+    -folder $DEMO_HOME \
+    -executionfile $EXECUTION_FILE
 
 echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
-./peass visualizerca -data ../demo-project_peass -propertyFolder results/properties_demo-project/
+./peass visualizerca -data $DEMO_PROJECT_PEASS -propertyFolder $PROPERTY_FOLDER
 
 #Check, if a slowdown is detected for innerMethod
-state=$(grep '"call" : "de.test.Callee#innerMethod",\|state' results/$version/de.test.CalleeTest_onlyCallMethod1.js | grep "innerMethod" -A 1 | grep '"state" : "SLOWER",' | grep -o 'SLOWER')
-if [ "$state" != "SLOWER" ]
+STATE=$(grep '"call" : "de.test.Callee#innerMethod",\|state' results/$VERSION/de.test.CalleeTest_onlyCallMethod1.js \
+    | grep "innerMethod" -A 1 \
+    | grep '"state" : "SLOWER",' \
+    | grep -o 'SLOWER')
+if [ "$STATE" != "SLOWER" ]
 then
-    echo "State for de.test.Callee#innerMethod in de.test.CalleeTest#onlyCallMethod1.html has not the expected value SLOWER, but was $state!"
-    cat results/$version/de.test.CalleeTest_onlyCallMethod1.js
+    echo "State for de.test.Callee#innerMethod in de.test.CalleeTest#onlyCallMethod1.html has not the expected value SLOWER, but was $STATE!"
+    cat results/$VERSION/de.test.CalleeTest_onlyCallMethod1.js
     exit 1
 else
     echo "Slowdown is detected for innerMethod."
 fi
 
-sourceMethodLine=$(grep "de.test.Callee.method1_" results/$version/de.test.CalleeTest_onlyCallMethod1.js -A 3 | head -n 3 | grep innerMethod)
-if [[ "$sourceMethodLine" != *"innerMethod();" ]]
+SOURCE_METHOD_LINE=$(grep "de.test.Callee.method1_" results/$VERSION/de.test.CalleeTest_onlyCallMethod1.js -A 3 \
+    | head -n 3 \
+    | grep innerMethod)
+if [[ "$SOURCE_METHOD_LINE" != *"innerMethod();" ]]
 then
     echo "Line could not be detected - source reading probably failed."
     echo "Line: "
-    echo $sourceMethodLine
+    echo "SOURCE_METHOD_LINE: $SOURCE_METHOD_LINE"
     exit 1
 fi
