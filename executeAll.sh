@@ -80,4 +80,6 @@ then
     echo "Line: "
     echo "SOURCE_METHOD_LINE: $SOURCE_METHOD_LINE"
     exit 1
+else
+    echo "SOURCE_METHOD_LINE is correct."
 fi
