@@ -79,7 +79,7 @@ else
 fi
 
 SOURCE_METHOD_LINE=$(grep "Callee.method1_" results/$VERSION/de.test.CalleeTest_onlyCallMethod1.js -A 3 \
-    | head -n -3 \
+    | head -n 3 \
     | grep innerMethod)
 if [[ "$SOURCE_METHOD_LINE" != *"innerMethod();" ]]
 then
