@@ -91,7 +91,6 @@ SOURCE_METHOD_LINE=$(grep "Callee.method1_" results/$VERSION/de.dagere.ExampleTe
 if [[ "$SOURCE_METHOD_LINE" != *"innerMethod();" ]]
 then
     echo "Line could not be detected - source reading probably failed."
-    echo "Line: "
     echo "SOURCE_METHOD_LINE: $SOURCE_METHOD_LINE"
     exit 1
 else
