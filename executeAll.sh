@@ -1,8 +1,15 @@
 #!/bin/bash
+
 DEMO_PROJECT_NAME=demo-project
 
+if [ "$#" -ne 1 ]; then
+	branch="master"
+else
+	branch=$1
+fi
+
 tar -xf "$DEMO_PROJECT_NAME".tar.xz
-git clone https://github.com/DaGeRe/peass.git && \
+git clone -b $branch https://github.com/DaGeRe/peass.git && \
 	cd peass && \
 	./mvnw clean install -DskipTests -V
 
