@@ -65,7 +65,7 @@ echo "VERSION: $VERSION"
 
 echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
 ./peass searchcause -vms 3 -iterations 5 -warmup 1 -repetitions 5 -version $VERSION \
-    -test de.dagere.ExampleTest\#test \
+    -test de.dagere.peass.ExampleTest\#test \
     -folder $DEMO_HOME \
     -executionfile $EXECUTION_FILE
 
@@ -73,19 +73,19 @@ echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
 ./peass visualizerca -data $DEMO_PROJECT_PEASS -propertyFolder $PROPERTY_FOLDER
 
 #Check, if a slowdown is detected for Callee#innerMethod
-STATE=$(grep -A21 '"call" : "de.dagere.Callee#innerMethod",' results/$VERSION/de.dagere.ExampleTest_test.js \
+STATE=$(grep -A21 '"call" : "de.dagere.peass.Callee#innerMethod",' results/$VERSION/de.dagere.peass.ExampleTest_test.js \
     | grep '"state" : "SLOWER",' \
     | grep -o 'SLOWER')
 if [ "$STATE" != "SLOWER" ]
 then
-    echo "State for Callee#innerMethod in de.dagere.ExampleTest_test.js has not the expected value SLOWER, but was $STATE!"
-    cat results/$VERSION/de.dagere.ExampleTest_test.js
+    echo "State for Callee#innerMethod in de.dagere.peass.ExampleTest_test.js has not the expected value SLOWER, but was $STATE!"
+    cat results/$VERSION/de.dagere.peass.ExampleTest_test.js
     exit 1
 else
     echo "Slowdown is detected for Callee#innerMethod."
 fi
 
-SOURCE_METHOD_LINE=$(grep "Callee.method1_" results/$VERSION/de.dagere.ExampleTest_test.js -A 3 \
+SOURCE_METHOD_LINE=$(grep "Callee.method1_" results/$VERSION/de.dagere.peass.ExampleTest_test.js -A 3 \
     | head -n 3 \
     | grep innerMethod)
 if [[ "$SOURCE_METHOD_LINE" != *"innerMethod();" ]]
