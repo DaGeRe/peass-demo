@@ -26,7 +26,7 @@ RIGHT_SHA="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
 ./peass select -folder $DEMO_HOME
 
-INITIALVERSION="3a286fe2ae9773502c78f90a6528816cbc7b2c21"
+INITIALVERSION="ab75d1b25564928781cc287c614325ec0992a300"
 INITIAL_SELECTED=$(grep "initialversion" -A 1 $DEPENDENCY_FILE | grep "\"version\"" | tr -d " \"," | awk -F':' '{print $2}')
 if [ "$INITIAL_SELECTED" != "$INITIALVERSION" ]
 then
