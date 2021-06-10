@@ -1,14 +1,14 @@
-# PeASS Demo
+# Peass Demo
 
-This demo shows how to detect a simple performance change and its cause by [PeASS](https://github.com/DaGeRe/peass). The `demo-project` contains three versions, where `ExampleTest` creates an instance of `ExampleClazz` and calls its method `calleeMethod`. This method calls `Callee.method1` which calls `Callee.innerMethod` which contains a `Thread.sleep`. In the 3rd version b6b35a5, `Callee.innerMethod` contains a longer call to `Thread.sleep` than before. Therefore, performance gets worse in this version.
+This demo shows how to detect a simple performance change and its cause by [Peass](https://github.com/DaGeRe/peass). The `demo-project` contains three versions, where `ExampleTest` creates an instance of `ExampleClazz` and calls its method `calleeMethod`. This method calls `Callee.method1` which calls `Callee.innerMethod` which contains a `Thread.sleep`. In the 3rd version b6b35a5, `Callee.innerMethod` contains a longer call to `Thread.sleep` than before. Therefore, performance gets worse in this version.
 
 If you just want to see the results, you can also immediately open `example_results/peass/results/b6b35a5952416a7b1a16b4e90e44ac22d5749af0/de.dagere.peass.ExampleTest_test.html`.
 
 ## Prerequisites
 
-In current development state, it is recommended to use the latest development version of PeASS. The following commands require (at least) installed OpenJDK 8, maven and tar and have been tried on Ubuntu 18.04 and 20.04.
+In current development state, it is recommended to use the latest development version of Peass. The following commands require (at least) installed OpenJDK 8, maven and tar and have been tried on Ubuntu 18.04 and 20.04.
 
-For installing the latest development version of PeASS run `git clone https://github.com/DaGeRe/peass.git && cd peass && mvn clean install` inside the `peass-demo`-folder in order to clone and build PeASS (optionally add `-DskipTests` to the `mvn`-call to speed up building).
+For installing the latest development version of Peass run `git clone https://github.com/DaGeRe/peass.git && cd peass && mvn clean install` inside the `peass-demo`-folder in order to clone and build Peass (optionally add `-DskipTests` to the `mvn`-call to speed up building).
 
 To get the example running, untar the example project using `tar -xvf demo-project.tar.xz` (which is a git project itself and is therefore managed inside this repo as tar). For the following commands, we assume that you are in the peass-folder and that the `demo-project` is in the folder one level above.
 

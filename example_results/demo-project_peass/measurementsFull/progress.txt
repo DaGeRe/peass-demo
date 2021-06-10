@@ -1,0 +1,3 @@
+Finished 0 Duration: 60 Avg: 60.0 Remaining: 0h 3
+Finished 1 Duration: 48 Avg: 54.0 Remaining: 0h 1
+Finished 2 Duration: 39 Avg: 49.0 Remaining: 0h 0
