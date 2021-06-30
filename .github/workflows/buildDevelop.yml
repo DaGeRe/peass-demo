@@ -20,8 +20,9 @@ jobs:
     strategy:
         matrix:
           java: [ 1.8, 11, 15 ]
+          rcaStrategy: [ COMPLETE, LEVELWISE, UNTIL_SOURCE_CHANGE ]
         fail-fast: false
-    name: Java ${{ matrix.java }} sample
+    name: Java ${{ matrix.java }} rcaStrategy ${{ matrix.rcaStrategy }}
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK ${{ matrix.java }}
@@ -29,4 +30,4 @@ jobs:
       with:
         java-version: ${{ matrix.java }}
     - name: executeAll
-      run: ./executeAll.sh develop
+      run: ./executeAll.sh develop ${{ matrix.rcaStrategy }}
