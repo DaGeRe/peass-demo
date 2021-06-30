@@ -2,11 +2,8 @@
 
 DEMO_PROJECT_NAME=demo-project
 
-if [ "$#" -ne 1 ]; then
-	branch="master"
-else
-	branch=$1
-fi
+branch=$1
+rcaStrategy=$2
 
 tar -xf "$DEMO_PROJECT_NAME".tar.xz
 git clone -b $branch https://github.com/DaGeRe/peass.git && \
@@ -64,6 +61,7 @@ echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
     -test de.dagere.peass.ExampleTest\#test \
     -folder $DEMO_HOME \
     -executionfile $EXECUTION_FILE
+    -rcaStrategy $rcaStrategy
 
 echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
 ./peass visualizerca -data $DEMO_PROJECT_PEASS -propertyFolder $PROPERTY_FOLDER

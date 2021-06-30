@@ -20,6 +20,7 @@ jobs:
     strategy:
         matrix:
           java: [ 1.8, 11, 15 ]
+          rcaStrategy: [ COMPLETE, LEVELWISE, UNTIL_SOURCE_CHANGE ]
         fail-fast: false
     name: Java ${{ matrix.java }} sample
     steps:
@@ -29,4 +30,4 @@ jobs:
       with:
         java-version: ${{ matrix.java }}
     - name: executeAll
-      run: ./executeAll.sh
+      run: ./executeAll.sh master ${{ matrix.rcaStrategy }}
