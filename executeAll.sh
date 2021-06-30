@@ -62,7 +62,8 @@ echo "rcaStrategy is: $rcaStrategy"
     -test de.dagere.peass.ExampleTest\#test \
     -folder $DEMO_HOME \
     -executionfile $EXECUTION_FILE \
-    -rcaStrategy $rcaStrategy
+    -rcaStrategy $rcaStrategy \
+    -propertyFolder $PROPERTY_FOLDER
 
 echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
 ./peass visualizerca -data $DEMO_PROJECT_PEASS -propertyFolder $PROPERTY_FOLDER
