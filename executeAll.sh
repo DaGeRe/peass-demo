@@ -57,10 +57,11 @@ else
 fi
 
 echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
+echo "rcaStrategy is: $rcaStrategy"
 ./peass searchcause -vms 3 -iterations 5 -warmup 1 -repetitions 5 -version $VERSION \
     -test de.dagere.peass.ExampleTest\#test \
     -folder $DEMO_HOME \
-    -executionfile $EXECUTION_FILE
+    -executionfile $EXECUTION_FILE \
     -rcaStrategy $rcaStrategy
 
 echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
