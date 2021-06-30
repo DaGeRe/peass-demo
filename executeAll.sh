@@ -63,7 +63,8 @@ echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
 ./peass searchcause -vms 3 -iterations 5 -warmup 1 -repetitions 5 -version $VERSION \
     -test de.dagere.peass.ExampleTest\#test \
     -folder $DEMO_HOME \
-    -executionfile $EXECUTION_FILE
+    -executionfile $EXECUTION_FILE \
+    -rcaStrategy UNTIL_SOURCE_CHANGE
 
 echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
 ./peass visualizerca -data $DEMO_PROJECT_PEASS -propertyFolder $PROPERTY_FOLDER
