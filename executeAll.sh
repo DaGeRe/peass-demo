@@ -2,13 +2,20 @@
 
 DEMO_PROJECT_NAME=demo-project
 
-if [ "$#" -ne 1 ]; then
-	branch="master"
+if [ "$#" -lt 1 ]; then
+    branch="master"
 else
-	branch=$1
+    branch=$1
+fi
+
+if [ ! -z $2 ]; then
+    rcaStrategy=$2
+else
+    rcaStrategy="COMPLETE"
 fi
 
 tar -xf "$DEMO_PROJECT_NAME".tar.xz
+echo "Cloning branch $branch"
 git clone -b $branch https://github.com/DaGeRe/peass.git && \
 	cd peass && \
 	./mvnw clean install -DskipTests -V
@@ -60,11 +67,13 @@ else
 fi
 
 echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
+echo "rcaStrategy is: $rcaStrategy"
 ./peass searchcause -vms 3 -iterations 5 -warmup 1 -repetitions 5 -version $VERSION \
     -test de.dagere.peass.ExampleTest\#test \
     -folder $DEMO_HOME \
     -executionfile $EXECUTION_FILE \
-    -rcaStrategy UNTIL_SOURCE_CHANGE
+    -rcaStrategy $rcaStrategy \
+    -propertyFolder $PROPERTY_FOLDER
 
 echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
 ./peass visualizerca -data $DEMO_PROJECT_PEASS -propertyFolder $PROPERTY_FOLDER
