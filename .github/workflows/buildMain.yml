@@ -5,11 +5,11 @@ name: Build with Peass main branch
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
-    branches: [ master ]
+    branches: [ main ]
   schedule:
     - cron: "0 */8 * * *"
 
