@@ -3,9 +3,9 @@
 DEMO_PROJECT_NAME=demo-project
 
 if [ "$#" -lt 1 ]; then
-    branch="master"
+	branch="main"
 else
-    branch=$1
+	branch=$1
 fi
 
 if [ ! -z $2 ]; then
