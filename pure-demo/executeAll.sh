@@ -16,9 +16,8 @@ fi
 
 tar -xf "$DEMO_PROJECT_NAME".tar.xz
 echo "Cloning branch $branch"
-git clone -b $branch https://github.com/DaGeRe/peass.git && \
-	cd peass && \
-	./mvnw clean install -DskipTests -V
+git clone -b $branch https://github.com/DaGeRe/peass.git 
+cd peass && ./mvnw clean install -DskipTests -V
 
 DEMO_HOME=$(pwd)/../$DEMO_PROJECT_NAME
 DEMO_PROJECT_PEASS=../"$DEMO_PROJECT_NAME"_peass
@@ -31,7 +30,7 @@ VERSION="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 
 # It is assumed that $DEMO_HOME is set correctly and PeASS has been built!
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
-./peass select -folder $DEMO_HOME
+./peass select -folder $DEMO_HOME -notUseSourceInstrumentation
 
 INITIALVERSION="ab75d1b25564928781cc287c614325ec0992a300"
 INITIAL_SELECTED=$(grep "initialversion" -A 1 $DEPENDENCY_FILE | grep "\"version\"" | tr -d " \"," | awk -F':' '{print $2}')

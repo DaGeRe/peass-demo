@@ -1,0 +1,66 @@
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------< [0;36mde.test:demo-project[0;1m >------------------------[m
+[[1;34mINFO[m] [1mBuilding project 1.0-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mdemo-project[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 2 resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:compile[m [1m(default-compile)[m @ [36mdemo-project[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 1 source file to /home/reichelt/workspaces/dissworkspace/peass-demo/demo-project_peass/projectTemp/9caed514e0759dbfa4ef29acca78787e34d99975~1/target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mdemo-project[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 2 resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:testCompile[m [1m(default-testCompile)[m @ [36mdemo-project[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 1 source file to /home/reichelt/workspaces/dissworkspace/peass-demo/demo-project_peass/projectTemp/9caed514e0759dbfa4ef29acca78787e34d99975~1/target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.0.0-M3:test[m [1m(default-test)[m @ [36mdemo-project[0;1m ---[m
+[[1;33mWARNING[m] The system property java.io.tmpdir is configured twice! The property appears in <argLine/> and any of <systemPropertyVariables/>, <systemProperties/> or user property.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running de.test.[1mCalleeTest[m
+Okt 20, 2020 6:42:26 PM kieker.monitoring.writer.filesystem.ChangeableFolderWriter <init>
+INFORMATION: Init..
+Initializing class kieker.monitoring.writer.filesystem.ChangeableFolderWriter
+18:42:26.555 [main] DEBUG de.dagere.kopeme.junit.rule.TestRunnables:40 - Klasse: class de.test.CalleeTest
+18:42:26.564 [main] DEBUG de.dagere.kopeme.parsing.BuildtoolProjectNameReader:52 - Directory: /home/reichelt/workspaces/dissworkspace/peass-demo/demo-project_peass/projectTemp/9caed514e0759dbfa4ef29acca78787e34d99975~1/.
+Okt 20, 2020 6:42:26 PM kieker.monitoring.writer.filesystem.ChangeableFolderWriter setFolder
+INFORMATION: Writing to: /home/reichelt/workspaces/dissworkspace/peass-demo/peass/../demo-project_peass/projectTemp/9caed514e0759dbfa4ef29acca78787e34d99975~1_peass/measurementsTemp/de.test/demo-project/de.test.CalleeTest/1603212146563/onlyCallMethod1
+Okt 20, 2020 6:42:26 PM kieker.monitoring.writer.filesystem.ChangeableFolderWriter setFolder
+INFORMATION: Adding registry record: KiekerMetadataRecord: version = 1.14, controllerName = KIEKER-KoPeMe, hostname = reichelt-desktop, experimentId = 1, debugMode = false, timeOffset = 0, timeUnit = NANOSECONDS, numberOfRecords = 0, 
+18:42:26.626 [main] DEBUG de.dagere.kopeme.kieker.KoPeMeKiekerSupport:50 - Kieker-Monitoring successfully enabled
+18:42:26.631 [main] DEBUG de.dagere.kopeme.TimeBoundExecution:99 - Waiting: 300000
+18:42:26.676 [timebound-0] DEBUG de.dagere.kopeme.junit.rule.KoPeMeBasicStatement:120 - Executing 1 execution 
+18:42:26.762 [timebound-0] DEBUG de.dagere.kopeme.junit.rule.KoPeMeBasicStatement:147 - Executions: 1
+18:42:26.782 [timebound-0] DEBUG de.dagere.kopeme.datacollection.tempfile.WrittenResultReader:48 - Count of executions: 1  Values: 1
+18:42:26.784 [timebound-0] INFO  de.dagere.kopeme.datastorage.XMLDataStorer:151 - Storing data to: /home/reichelt/workspaces/dissworkspace/peass-demo/peass/../demo-project_peass/projectTemp/9caed514e0759dbfa4ef29acca78787e34d99975~1_peass/measurementsTemp/de.test/demo-project/de.test.CalleeTest/onlyCallMethod1.xml
+18:42:26.921 [timebound-0] INFO  de.dagere.kopeme.PerformanceTestUtils:90 - Execution Time: 18101.72 milliseconds
+18:42:26.948 [timebound-0] INFO  de.dagere.kopeme.datastorage.XMLDataStorer:151 - Storing data to: /home/reichelt/workspaces/dissworkspace/peass-demo/peass/../demo-project_peass/projectTemp/9caed514e0759dbfa4ef29acca78787e34d99975~1_peass/measurementsTemp/de.test/demo-project/de.test.CalleeTest/onlyCallMethod1.xml
+18:42:26.955 [main] DEBUG de.dagere.kopeme.TimeBoundExecution:106 - KoPeMe-Test METHOD. Kieker: true Threads: 0
+18:42:26.955 [main] DEBUG de.dagere.kopeme.kieker.KoPeMeKiekerSupport:78 - Disabling Monitoring..
+18:42:26.956 [main] DEBUG de.dagere.kopeme.kieker.KoPeMeKiekerSupport:109 - Waiting for Thread-End: Thread[Thread-1,5,main]
+18:42:26.956 [main] DEBUG de.dagere.kopeme.kieker.KoPeMeKiekerSupport:114 - Writing finished, Thread alive: false
+Okt 20, 2020 6:42:26 PM kieker.monitoring.writer.filesystem.ChangeableFolderWriter <init>
+INFORMATION: Init..
+Initializing class kieker.monitoring.writer.filesystem.ChangeableFolderWriter
+18:42:26.962 [main] INFO  de.dagere.kopeme.junit.rule.KoPeMeStandardRuleStatement:68 - Test de.test.CalleeTest beendet
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m1[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.84 s - in de.test.[1mCalleeTest[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1;32mTests run: 1, Failures: 0, Errors: 0, Skipped: 0[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  4.201 s
+[[1;34mINFO[m] Finished at: 2020-10-20T18:42:27+02:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m

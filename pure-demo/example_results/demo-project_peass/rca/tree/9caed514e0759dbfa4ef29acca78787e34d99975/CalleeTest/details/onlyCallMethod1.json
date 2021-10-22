@@ -1,0 +1,270 @@
+{
+  "measurementConfig" : {
+    "timeout" : 300000,
+    "vms" : 2,
+    "type1error" : 0.05,
+    "type2error" : 0.01,
+    "version" : "9caed514e0759dbfa4ef29acca78787e34d99975",
+    "versionOld" : "9caed514e0759dbfa4ef29acca78787e34d99975~1",
+    "earlyStop" : false,
+    "warmup" : 0,
+    "iterations" : 1,
+    "repetitions" : 100,
+    "logFullData" : true,
+    "useKieker" : true,
+    "redirectToNull" : true,
+    "useGC" : false,
+    "kiekerAggregationInterval" : 5000,
+    "javaVersion" : "1.8.0_265"
+  },
+  "causeConfig" : {
+    "useAggregation" : true,
+    "saveAll" : true,
+    "outlierFactor" : 5.0,
+    "splitAggregated" : true,
+    "minTime" : 0.1,
+    "ignoreEOIs" : true,
+    "testCase" : {
+      "clazz" : "de.test.CalleeTest",
+      "method" : "onlyCallMethod1",
+      "module" : ""
+    }
+  },
+  "nodes" : {
+    "call" : "de.test.CalleeTest#onlyCallMethod1",
+    "kiekerPattern" : "public void de.test.CalleeTest.onlyCallMethod1()",
+    "otherKiekerPattern" : "public void de.test.CalleeTest.onlyCallMethod1()",
+    "statistic" : {
+      "meanOld" : 5327.0,
+      "meanCurrent" : 15367.945,
+      "deviationOld" : 71.61577479857336,
+      "deviationCurrent" : 16.04425286512441,
+      "vms" : 2,
+      "callsOld" : 200,
+      "calls" : 200,
+      "tvalue" : -193.4847971548377
+    },
+    "childs" : [ {
+      "call" : "de.test.Callee#<init>",
+      "kiekerPattern" : "public new de.test.Callee.<init>()",
+      "otherKiekerPattern" : "public new de.test.Callee.<init>()",
+      "statistic" : {
+        "meanOld" : 2.745,
+        "meanCurrent" : 3.105,
+        "deviationOld" : 0.3040559159102162,
+        "deviationCurrent" : 0.07778174593051983,
+        "vms" : 2,
+        "callsOld" : 200,
+        "calls" : 200,
+        "tvalue" : -1.6221812726135947
+      },
+      "childs" : [ ],
+      "values" : {
+        "values" : {
+          "0" : [ {
+            "mean" : 3.1599999999999997,
+            "variance" : 15.024646464646459,
+            "n" : 100,
+            "max" : 30.0,
+            "min" : 1.0,
+            "sum" : 315.99999999999994,
+            "standardDeviation" : 3.876163885163585
+          } ],
+          "1" : [ {
+            "mean" : 3.0500000000000003,
+            "variance" : 12.391414141414144,
+            "n" : 100,
+            "max" : 28.0,
+            "min" : 1.0,
+            "sum" : 305.0,
+            "standardDeviation" : 3.5201440512305946
+          } ]
+        }
+      },
+      "valuesPredecessor" : {
+        "values" : {
+          "0" : [ {
+            "mean" : 2.960000000000001,
+            "variance" : 14.685252525252526,
+            "n" : 100,
+            "max" : 29.0,
+            "min" : 1.0,
+            "sum" : 296.0000000000001,
+            "standardDeviation" : 3.8321341997968346
+          } ],
+          "1" : [ {
+            "mean" : 2.53,
+            "variance" : 12.130404040404038,
+            "n" : 100,
+            "max" : 25.0,
+            "min" : 1.0,
+            "sum" : 252.99999999999997,
+            "standardDeviation" : 3.4828729578329494
+          } ]
+        }
+      }
+    }, {
+      "call" : "de.test.Callee#method1",
+      "kiekerPattern" : "public void de.test.Callee.method1()",
+      "otherKiekerPattern" : "public void de.test.Callee.method1()",
+      "statistic" : {
+        "meanOld" : 5189.004999999999,
+        "meanCurrent" : 15227.529999999999,
+        "deviationOld" : 37.653436098183654,
+        "deviationCurrent" : 11.539982668965536,
+        "vms" : 2,
+        "callsOld" : 200,
+        "calls" : 200,
+        "tvalue" : -360.48372419770516
+      },
+      "childs" : [ {
+        "call" : "de.test.Callee#innerMethod",
+        "kiekerPattern" : "private void de.test.Callee.innerMethod()",
+        "otherKiekerPattern" : "private void de.test.Callee.innerMethod()",
+        "statistic" : {
+          "meanOld" : 5184.915000000001,
+          "meanCurrent" : 15187.319999999998,
+          "deviationOld" : 28.050926009671677,
+          "deviationCurrent" : 22.21729506488009,
+          "vms" : 2,
+          "callsOld" : 200,
+          "calls" : 200,
+          "tvalue" : -395.3083387745348
+        },
+        "childs" : [ ],
+        "values" : {
+          "values" : {
+            "0" : [ {
+              "mean" : 15203.029999999997,
+              "variance" : 1841.8071717172445,
+              "n" : 100,
+              "max" : 15324.0,
+              "min" : 15073.0,
+              "sum" : 1520302.9999999998,
+              "standardDeviation" : 42.91628096325734
+            } ],
+            "1" : [ {
+              "mean" : 15171.609999999999,
+              "variance" : 3141.0685858585,
+              "n" : 100,
+              "max" : 15293.0,
+              "min" : 15068.0,
+              "sum" : 1517160.9999999998,
+              "standardDeviation" : 56.04523695960701
+            } ]
+          }
+        },
+        "valuesPredecessor" : {
+          "values" : {
+            "0" : [ {
+              "mean" : 5165.08,
+              "variance" : 80941.34707070714,
+              "n" : 100,
+              "max" : 6906.0,
+              "min" : 5042.0,
+              "sum" : 516508.0,
+              "standardDeviation" : 284.50192806149335
+            } ],
+            "1" : [ {
+              "mean" : 5204.750000000002,
+              "variance" : 1042.4520202020233,
+              "n" : 100,
+              "max" : 5291.0,
+              "min" : 5097.0,
+              "sum" : 520475.0000000002,
+              "standardDeviation" : 32.28702557068432
+            } ]
+          }
+        }
+      } ],
+      "values" : {
+        "values" : {
+          "0" : [ {
+            "mean" : 15219.369999999999,
+            "variance" : 2217.7304040404056,
+            "n" : 100,
+            "max" : 15302.0,
+            "min" : 15087.0,
+            "sum" : 1521937.0,
+            "standardDeviation" : 47.09278505291873
+          } ],
+          "1" : [ {
+            "mean" : 15235.69,
+            "variance" : 1288.5594949494914,
+            "n" : 100,
+            "max" : 15422.0,
+            "min" : 15100.0,
+            "sum" : 1523569.0,
+            "standardDeviation" : 35.89651090216835
+          } ]
+        }
+      },
+      "valuesPredecessor" : {
+        "values" : {
+          "0" : [ {
+            "mean" : 5215.629999999999,
+            "variance" : 1000.9223232323268,
+            "n" : 100,
+            "max" : 5287.0,
+            "min" : 5131.0,
+            "sum" : 521562.99999999994,
+            "standardDeviation" : 31.63735645139029
+          } ],
+          "1" : [ {
+            "mean" : 5162.379999999999,
+            "variance" : 2250.541010101012,
+            "n" : 100,
+            "max" : 5258.0,
+            "min" : 5056.0,
+            "sum" : 516237.99999999994,
+            "standardDeviation" : 47.43986730694988
+          } ]
+        }
+      }
+    } ],
+    "values" : {
+      "values" : {
+        "0" : [ {
+          "mean" : 15379.29,
+          "variance" : 2171498.834242424,
+          "n" : 100,
+          "max" : 29959.0,
+          "min" : 15094.0,
+          "sum" : 1537929.0,
+          "standardDeviation" : 1473.6006359398818
+        } ],
+        "1" : [ {
+          "mean" : 15356.599999999999,
+          "variance" : 1416882.8484848507,
+          "n" : 100,
+          "max" : 27134.0,
+          "min" : 15101.0,
+          "sum" : 1535659.9999999998,
+          "standardDeviation" : 1190.3288824878823
+        } ]
+      }
+    },
+    "valuesPredecessor" : {
+      "values" : {
+        "0" : [ {
+          "mean" : 5276.36,
+          "variance" : 1777411.4044444438,
+          "n" : 100,
+          "max" : 18415.0,
+          "min" : 5075.0,
+          "sum" : 527636.0,
+          "standardDeviation" : 1333.195936254099
+        } ],
+        "1" : [ {
+          "mean" : 5377.639999999999,
+          "variance" : 1980136.6569696954,
+          "n" : 100,
+          "max" : 19300.0,
+          "min" : 5086.0,
+          "sum" : 537764.0,
+          "standardDeviation" : 1407.1732860489128
+        } ]
+      }
+    }
+  }
+}

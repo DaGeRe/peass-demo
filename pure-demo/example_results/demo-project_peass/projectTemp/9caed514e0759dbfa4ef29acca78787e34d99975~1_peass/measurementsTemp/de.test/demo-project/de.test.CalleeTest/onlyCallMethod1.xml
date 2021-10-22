@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kopemedata>
+    <testcases class="de.test.CalleeTest">
+        <testcase name="onlyCallMethod1">
+            <datacollector name="de.dagere.kopeme.datacollection.TimeDataCollector">
+                <result cpu="model name : Intel(R) Core(TM) i5 CPU 760@ 2.80GHz" memory="MemTotal: 16386464 kB" date="1603212146921">
+                    <value>1.810172E7</value>
+                    <deviation>0.0</deviation>
+                    <warmupExecutions>0</warmupExecutions>
+                    <executionTimes>1</executionTimes>
+                    <repetitions>1</repetitions>
+                    <min>1.810172E7</min>
+                    <max>1.810172E7</max>
+                    <showStart>false</showStart>
+                    <redirectToTemp>false</redirectToTemp>
+                    <redirectToNull>true</redirectToNull>
+                    <javaVersion>1.8.0_265</javaVersion>
+                    <fulldata>
+                        <value start="1603212146676">18101720</value>
+                    </fulldata>
+                </result>
+            </datacollector>
+        </testcase>
+    </testcases>
+</kopemedata>

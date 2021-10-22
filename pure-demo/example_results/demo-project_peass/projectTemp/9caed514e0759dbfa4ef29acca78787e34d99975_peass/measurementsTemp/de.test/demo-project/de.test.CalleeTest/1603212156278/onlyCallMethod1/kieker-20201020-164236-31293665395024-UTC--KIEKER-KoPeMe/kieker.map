@@ -1,0 +1,11 @@
+$0=kieker.common.record.misc.KiekerMetadataRecord
+$1=1.14
+$2=KIEKER-KoPeMe
+$3=reichelt-desktop
+$4=NANOSECONDS
+$5=kieker.common.record.controlflow.OperationExecutionRecord
+$6=public de.test.Callee.<init>()
+$7=<no-session-id>
+$8=private void de.test.Callee.innerMethod()
+$9=public void de.test.Callee.method1()
+$10=public void de.test.CalleeTest.onlyCallMethod1()

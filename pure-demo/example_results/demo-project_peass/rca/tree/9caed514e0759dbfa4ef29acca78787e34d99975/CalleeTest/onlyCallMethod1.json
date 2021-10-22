@@ -1,0 +1,94 @@
+{
+  "measurementConfig" : {
+    "timeout" : 300000,
+    "vms" : 2,
+    "type1error" : 0.05,
+    "type2error" : 0.01,
+    "version" : "9caed514e0759dbfa4ef29acca78787e34d99975",
+    "versionOld" : "9caed514e0759dbfa4ef29acca78787e34d99975~1",
+    "earlyStop" : false,
+    "warmup" : 0,
+    "iterations" : 1,
+    "repetitions" : 100,
+    "logFullData" : true,
+    "useKieker" : true,
+    "redirectToNull" : true,
+    "useGC" : false,
+    "kiekerAggregationInterval" : 5000,
+    "javaVersion" : "1.8.0_265"
+  },
+  "causeConfig" : {
+    "useAggregation" : true,
+    "saveAll" : true,
+    "outlierFactor" : 5.0,
+    "splitAggregated" : true,
+    "minTime" : 0.1,
+    "ignoreEOIs" : true,
+    "testCase" : {
+      "clazz" : "de.test.CalleeTest",
+      "method" : "onlyCallMethod1",
+      "module" : ""
+    }
+  },
+  "nodes" : {
+    "call" : "de.test.CalleeTest#onlyCallMethod1",
+    "kiekerPattern" : "public void de.test.CalleeTest.onlyCallMethod1()",
+    "otherKiekerPattern" : "public void de.test.CalleeTest.onlyCallMethod1()",
+    "statistic" : {
+      "meanOld" : 5327.0,
+      "meanCurrent" : 15367.945,
+      "deviationOld" : 71.61577479857336,
+      "deviationCurrent" : 16.04425286512441,
+      "vms" : 2,
+      "callsOld" : 200,
+      "calls" : 200,
+      "tvalue" : -193.4847971548377
+    },
+    "childs" : [ {
+      "call" : "de.test.Callee#<init>",
+      "kiekerPattern" : "public new de.test.Callee.<init>()",
+      "otherKiekerPattern" : "public new de.test.Callee.<init>()",
+      "statistic" : {
+        "meanOld" : 2.745,
+        "meanCurrent" : 3.105,
+        "deviationOld" : 0.3040559159102162,
+        "deviationCurrent" : 0.07778174593051983,
+        "vms" : 2,
+        "callsOld" : 200,
+        "calls" : 200,
+        "tvalue" : -1.6221812726135947
+      },
+      "childs" : [ ]
+    }, {
+      "call" : "de.test.Callee#method1",
+      "kiekerPattern" : "public void de.test.Callee.method1()",
+      "otherKiekerPattern" : "public void de.test.Callee.method1()",
+      "statistic" : {
+        "meanOld" : 5189.004999999999,
+        "meanCurrent" : 15227.529999999999,
+        "deviationOld" : 37.653436098183654,
+        "deviationCurrent" : 11.539982668965536,
+        "vms" : 2,
+        "callsOld" : 200,
+        "calls" : 200,
+        "tvalue" : -360.48372419770516
+      },
+      "childs" : [ {
+        "call" : "de.test.Callee#innerMethod",
+        "kiekerPattern" : "private void de.test.Callee.innerMethod()",
+        "otherKiekerPattern" : "private void de.test.Callee.innerMethod()",
+        "statistic" : {
+          "meanOld" : 5184.915000000001,
+          "meanCurrent" : 15187.319999999998,
+          "deviationOld" : 28.050926009671677,
+          "deviationCurrent" : 22.21729506488009,
+          "vms" : 2,
+          "callsOld" : 200,
+          "calls" : 200,
+          "tvalue" : -395.3083387745348
+        },
+        "childs" : [ ]
+      } ]
+    } ]
+  }
+}

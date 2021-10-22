@@ -30,4 +30,4 @@ jobs:
       with:
         java-version: ${{ matrix.java }}
     - name: executeAll
-      run: ./executeAll.sh develop ${{ matrix.rcaStrategy }}
+      run: cd pure-demo && ./executeAll.sh develop ${{ matrix.rcaStrategy }}

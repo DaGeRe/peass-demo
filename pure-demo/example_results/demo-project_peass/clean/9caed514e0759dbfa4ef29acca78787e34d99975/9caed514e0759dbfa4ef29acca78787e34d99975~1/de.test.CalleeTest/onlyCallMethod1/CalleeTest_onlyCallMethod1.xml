@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kopemedata>
+ <testcases class="de.test.CalleeTest">
+  <testcase name="onlyCallMethod1">
+   <datacollector>
+    <chunk>
+     <result cpu="model name : Intel(R) Core(TM) i5 CPU 760@ 2.80GHz" memory="MemTotal: 16386464 kB" date="1603212126385">
+      <value>6585567.0</value>
+      <deviation>0.0</deviation>
+      <warmupExecutions>1</warmupExecutions>
+      <executionTimes>1</executionTimes>
+      <repetitions>1</repetitions>
+      <version>
+       <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975~1</gitversion>
+      </version>
+      <fulldata/>
+     </result>
+     <result cpu="model name : Intel(R) Core(TM) i5 CPU 760@ 2.80GHz" memory="MemTotal: 16386464 kB" date="1603212109004">
+      <value>6272623.0</value>
+      <deviation>0.0</deviation>
+      <warmupExecutions>1</warmupExecutions>
+      <executionTimes>1</executionTimes>
+      <repetitions>1</repetitions>
+      <version>
+       <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975~1</gitversion>
+      </version>
+      <fulldata/>
+     </result>
+     <result cpu="model name : Intel(R) Core(TM) i5 CPU 760@ 2.80GHz" memory="MemTotal: 16386464 kB" date="1603212117812">
+      <value>1.6272686E7</value>
+      <deviation>0.0</deviation>
+      <warmupExecutions>1</warmupExecutions>
+      <executionTimes>1</executionTimes>
+      <repetitions>1</repetitions>
+      <version>
+       <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975</gitversion>
+      </version>
+      <fulldata/>
+     </result>
+     <result cpu="model name : Intel(R) Core(TM) i5 CPU 760@ 2.80GHz" memory="MemTotal: 16386464 kB" date="1603212135150">
+      <value>1.6250812E7</value>
+      <deviation>0.0</deviation>
+      <warmupExecutions>1</warmupExecutions>
+      <executionTimes>1</executionTimes>
+      <repetitions>1</repetitions>
+      <version>
+       <gitversion>9caed514e0759dbfa4ef29acca78787e34d99975</gitversion>
+      </version>
+      <fulldata/>
+     </result>
+    </chunk>
+   </datacollector>
+  </testcase>
+ </testcases>
+</kopemedata>
