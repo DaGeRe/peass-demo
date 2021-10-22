@@ -1,6 +1,7 @@
 pure-demo/demo-project/
 pure-demo/demo-project_peass/
+pure-demo/results/
 pure-demo/peass/
-/demo-project
-/demo-project_peass
-/peass
+demo-project
+demo-project_peass
+peass

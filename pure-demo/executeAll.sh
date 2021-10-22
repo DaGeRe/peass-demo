@@ -16,11 +16,19 @@ fi
 
 tar -xf "$DEMO_PROJECT_NAME".tar.xz
 echo "Cloning branch $branch"
-git clone -b $branch https://github.com/DaGeRe/peass.git 
-cd peass && ./mvnw clean install -DskipTests -V
+if [ ! -d ../peass ]
+then
+	startDir=$(pwd)
+	cd ..
+	git clone -b $branch https://github.com/DaGeRe/peass.git 
+	cd peass && ./mvnw clean install -DskipTests -V
+	cd $startDir
+fi
 
-DEMO_HOME=$(pwd)/../$DEMO_PROJECT_NAME
-DEMO_PROJECT_PEASS=../"$DEMO_PROJECT_NAME"_peass
+PEASS_PROJECT=../peass
+
+DEMO_HOME=$(pwd)/$DEMO_PROJECT_NAME
+DEMO_PROJECT_PEASS=$(pwd)/"$DEMO_PROJECT_NAME"_peass
 EXECUTION_FILE=results/execute_"$DEMO_PROJECT_NAME".json
 DEPENDENCY_FILE=results/deps_"$DEMO_PROJECT_NAME".json
 CHANGES_DEMO_PROJECT=results/changes_"$DEMO_PROJECT_NAME".json
@@ -30,7 +38,7 @@ VERSION="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 
 # It is assumed that $DEMO_HOME is set correctly and PeASS has been built!
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
-./peass select -folder $DEMO_HOME -notUseSourceInstrumentation
+java -jar $PEASS_PROJECT/distribution/target/peass-distribution-0.1-SNAPSHOT.jar select -folder $DEMO_HOME -notUseSourceInstrumentation
 
 INITIALVERSION="ab75d1b25564928781cc287c614325ec0992a300"
 INITIAL_SELECTED=$(grep "initialversion" -A 1 $DEPENDENCY_FILE | grep "\"version\"" | tr -d " \"," | awk -F':' '{print $2}')
@@ -49,10 +57,10 @@ then
 fi
 
 echo ":::::::::::::::::::::MEASURE::::::::::::::::::::::::::::::::::::::::::"
-./peass measure -executionfile $EXECUTION_FILE -folder $DEMO_HOME -vms 5 -iterations 5 -warmup 5 -repetitions 5
+java -jar $PEASS_PROJECT/distribution/target/peass-distribution-0.1-SNAPSHOT.jar measure -executionfile $EXECUTION_FILE -folder $DEMO_HOME -vms 5 -iterations 5 -warmup 5 -repetitions 5
 
 echo "::::::::::::::::::::GETCHANGES::::::::::::::::::::::::::::::::::::::::"
-./peass getchanges -data $DEMO_PROJECT_PEASS -dependencyfile $DEPENDENCY_FILE
+java -jar $PEASS_PROJECT/distribution/target/peass-distribution-0.1-SNAPSHOT.jar getchanges -data $DEMO_PROJECT_PEASS -dependencyfile $DEPENDENCY_FILE
 
 #Check, if $CHANGES_DEMO_PROJECT contains the correct commit-SHA
 TEST_SHA=$(grep -A1 'versionChanges" : {' $CHANGES_DEMO_PROJECT | grep -v '"versionChanges' | grep -Po '"\K.*(?=")')
@@ -67,7 +75,7 @@ fi
 
 echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
 echo "rcaStrategy is: $rcaStrategy"
-./peass searchcause -vms 3 -iterations 5 -warmup 1 -repetitions 5 -version $VERSION \
+java -jar $PEASS_PROJECT/distribution/target/peass-distribution-0.1-SNAPSHOT.jar searchcause -vms 3 -iterations 5 -warmup 1 -repetitions 5 -version $VERSION \
     -test de.dagere.peass.ExampleTest\#test \
     -folder $DEMO_HOME \
     -executionfile $EXECUTION_FILE \
@@ -75,7 +83,7 @@ echo "rcaStrategy is: $rcaStrategy"
     -propertyFolder $PROPERTY_FOLDER
 
 echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
-./peass visualizerca -data $DEMO_PROJECT_PEASS -propertyFolder $PROPERTY_FOLDER
+java -jar $PEASS_PROJECT/distribution/target/peass-distribution-0.1-SNAPSHOT.jar visualizerca -data $DEMO_PROJECT_PEASS -propertyFolder $PROPERTY_FOLDER
 
 #Check, if a slowdown is detected for Callee#innerMethod
 STATE=$(grep -A21 '"call" : "de.dagere.peass.Callee#innerMethod",' results/$VERSION/de.dagere.peass.ExampleTest_test.js \
