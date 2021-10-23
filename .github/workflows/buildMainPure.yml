@@ -1,7 +1,4 @@
-# This workflow will build a Java project with Maven
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
-
-name: Build with Peass main branch
+name: Peass (main) Pure Demo
 
 on:
   push:
@@ -14,15 +11,14 @@ on:
     - cron: "0 */8 * * *"
 
 jobs:
-  build:
-
+  runDemo:
     runs-on: ubuntu-latest
     strategy:
         matrix:
           java: [ 1.8, 11, 15 ]
           rcaStrategy: [ COMPLETE, LEVELWISE, UNTIL_SOURCE_CHANGE ]
         fail-fast: false
-    name: Java ${{ matrix.java }} rcaStrategy ${{ matrix.rcaStrategy }}
+    name: Pure Java Demo ${{ matrix.java }} rcaStrategy ${{ matrix.rcaStrategy }}
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK ${{ matrix.java }}
