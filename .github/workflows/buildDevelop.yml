@@ -39,7 +39,6 @@ jobs:
     strategy:
         matrix:
           java: [ 1.8, 11, 15 ]
-          rcaStrategy: [ COMPLETE, LEVELWISE, UNTIL_SOURCE_CHANGE ]
         fail-fast: false
     name: Java ${{ matrix.java }} rcaStrategy ${{ matrix.rcaStrategy }}
     steps:
@@ -48,4 +47,4 @@ jobs:
       with:
         java-version: ${{ matrix.java }}
     - name: executeAll
-      run: cd spring-boot-demo && ./executeAll.sh develop ${{ matrix.rcaStrategy }}
+      run: cd spring-boot-demo && ./executeAll.sh develop UNTIL_SOURCE_CHANGE
