@@ -2,6 +2,9 @@ pure-demo/demo-project/
 pure-demo/demo-project_peass/
 pure-demo/results/
 pure-demo/peass/
+spring-boot-demo/demo-project-spring-boot
+spring-boot-demo/demo-project-spring-boot_peass
+spring-boot-demo/results
 demo-project
 demo-project_peass
 peass
