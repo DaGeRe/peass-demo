@@ -21,7 +21,7 @@ jobs:
           java: [ 1.8, 11, 15 ]
           rcaStrategy: [ COMPLETE, LEVELWISE, UNTIL_SOURCE_CHANGE ]
         fail-fast: false
-    name: Java ${{ matrix.java }} rcaStrategy ${{ matrix.rcaStrategy }}
+    name: Pure Java Demo ${{ matrix.java }} rcaStrategy ${{ matrix.rcaStrategy }}
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK ${{ matrix.java }}
@@ -37,7 +37,7 @@ jobs:
         matrix:
           java: [ 1.8, 11, 15 ]
         fail-fast: false
-    name: Java ${{ matrix.java }} rcaStrategy ${{ matrix.rcaStrategy }}
+    name: Spring Boot Demo ${{ matrix.java }} rcaStrategy UNTIL_SOURCE_CHANGE
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK ${{ matrix.java }}
