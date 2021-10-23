@@ -14,12 +14,7 @@ on:
     - cron: "0 */8 * * *"
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
   build:
-    needs: setup
     runs-on: ubuntu-latest
     strategy:
         matrix:
@@ -28,6 +23,7 @@ jobs:
         fail-fast: false
     name: Java ${{ matrix.java }} rcaStrategy ${{ matrix.rcaStrategy }}
     steps:
+    - uses: actions/checkout@v2
     - name: Set up JDK ${{ matrix.java }}
       uses: actions/setup-java@v1
       with:
@@ -43,6 +39,7 @@ jobs:
         fail-fast: false
     name: Java ${{ matrix.java }} rcaStrategy ${{ matrix.rcaStrategy }}
     steps:
+    - uses: actions/checkout@v2
     - name: Set up JDK ${{ matrix.java }}
       uses: actions/setup-java@v1
       with:
