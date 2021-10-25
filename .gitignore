@@ -5,6 +5,9 @@ pure-demo/peass/
 spring-boot-demo/demo-project-spring-boot
 spring-boot-demo/demo-project-spring-boot_peass
 spring-boot-demo/results
+android-demo/demo-project-android
+android-demo/demo-project-android_peass/
+android-demo/results/
 demo-project
 demo-project_peass
 peass
