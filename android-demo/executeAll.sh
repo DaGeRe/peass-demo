@@ -27,6 +27,8 @@ then
 	cd $startDir
 fi
 
+PEASS_PROJECT=../peass
+
 DEMO_HOME=$(pwd)/$DEMO_PROJECT_NAME
 DEMO_PROJECT_PEASS=$(pwd)/"$DEMO_PROJECT_NAME"_peass
 EXECUTION_FILE=results/execute_"$DEMO_PROJECT_NAME".json
