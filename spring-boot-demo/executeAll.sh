@@ -33,12 +33,13 @@ EXECUTION_FILE=results/execute_"$DEMO_PROJECT_NAME".json
 DEPENDENCY_FILE=results/deps_"$DEMO_PROJECT_NAME".json
 CHANGES_DEMO_PROJECT=results/changes_"$DEMO_PROJECT_NAME".json
 PROPERTY_FOLDER=results/properties_"$DEMO_PROJECT_NAME"/
+PEASS_FILE=$PEASS_PROJECT/distribution/target/peass-distribution-*-SNAPSHOT.jar
 
 VERSION="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 
 # It is assumed that $DEMO_HOME is set correctly and PeASS has been built!
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
-java -jar $PEASS_PROJECT/distribution/target/peass-distribution-0.1-SNAPSHOT.jar select -folder $DEMO_HOME
+java -jar $PEASS_FILE select -folder $DEMO_HOME
 
 INITIALVERSION="41450646f6be5e88e09bea1e4f4218d2b53f5804"
 INITIAL_SELECTED=$(grep "initialversion" -A 1 $DEPENDENCY_FILE | grep "\"version\"" | tr -d " \"," | awk -F':' '{print $2}')
@@ -68,10 +69,10 @@ then
 fi
 
 echo ":::::::::::::::::::::MEASURE::::::::::::::::::::::::::::::::::::::::::"
-java -jar $PEASS_PROJECT/distribution/target/peass-distribution-0.1-SNAPSHOT.jar measure -executionfile $EXECUTION_FILE -folder $DEMO_HOME -vms 5 -iterations 5 -warmup 5 -repetitions 5
+java -jar $PEASS_FILE measure -executionfile $EXECUTION_FILE -folder $DEMO_HOME -vms 5 -iterations 5 -warmup 5 -repetitions 5
 
 echo "::::::::::::::::::::GETCHANGES::::::::::::::::::::::::::::::::::::::::"
-java -jar $PEASS_PROJECT/distribution/target/peass-distribution-0.1-SNAPSHOT.jar getchanges -data $DEMO_PROJECT_PEASS -dependencyfile $DEPENDENCY_FILE
+java -jar $PEASS_FILE getchanges -data $DEMO_PROJECT_PEASS -dependencyfile $DEPENDENCY_FILE
 
 #Check, if $CHANGES_DEMO_PROJECT contains the correct commit-SHA
 TEST_SHA=$(grep -A1 'versionChanges" : {' $CHANGES_DEMO_PROJECT | grep -v '"versionChanges' | grep -Po '"\K.*(?=")')
@@ -86,7 +87,7 @@ fi
 
 echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
 echo "rcaStrategy is: $rcaStrategy"
-java -jar $PEASS_PROJECT/distribution/target/peass-distribution-0.1-SNAPSHOT.jar searchcause -vms 3 -iterations 5 -warmup 1 -repetitions 5 -version $VERSION \
+java -jar $PEASS_FILE searchcause -vms 3 -iterations 5 -warmup 1 -repetitions 5 -version $VERSION \
     -test de.dagere.peass.ExampleTest\#test \
     -folder $DEMO_HOME \
     -executionfile $EXECUTION_FILE \
@@ -94,7 +95,7 @@ java -jar $PEASS_PROJECT/distribution/target/peass-distribution-0.1-SNAPSHOT.jar
     -propertyFolder $PROPERTY_FOLDER
 
 echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
-java -jar $PEASS_PROJECT/distribution/target/peass-distribution-0.1-SNAPSHOT.jar visualizerca -data $DEMO_PROJECT_PEASS -propertyFolder $PROPERTY_FOLDER
+java -jar $PEASS_FILE visualizerca -data $DEMO_PROJECT_PEASS -propertyFolder $PROPERTY_FOLDER
 
 #Check, if a slowdown is detected for Callee#innerMethod
 STATE=$(grep -A21 '"call" : "de.dagere.peass.Callee#innerMethod",' results/$VERSION/de.dagere.peass.ExampleTest_test.js \
