@@ -8,6 +8,8 @@ spring-boot-demo/results
 android-demo/demo-project-android
 android-demo/demo-project-android_peass/
 android-demo/results/
+compile-error/demo-project-compile-error/
+compile-error/demo-project-compile-error_peass/
 demo-project
 demo-project_peass
 peass
