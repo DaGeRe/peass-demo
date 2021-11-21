@@ -18,16 +18,8 @@ else
 fi
 
 tar -xf "$DEMO_PROJECT_NAME".tar.xz
-if [ ! -d ../peass ]
-then
-	startDir=$(pwd)
-	cd ..
-	git clone -b $branch https://github.com/DaGeRe/peass.git 
-	cd peass && ./mvnw clean install -DskipTests -V
-	cd $startDir
-fi
 
-PEASS_PROJECT=../peass
+source ../common-functions.sh
 
 DEMO_HOME=$(pwd)/$DEMO_PROJECT_NAME
 DEMO_PROJECT_PEASS=$(pwd)/"$DEMO_PROJECT_NAME"_peass
@@ -35,8 +27,6 @@ EXECUTION_FILE=results/execute_"$DEMO_PROJECT_NAME".json
 DEPENDENCY_FILE=results/deps_"$DEMO_PROJECT_NAME".json
 CHANGES_DEMO_PROJECT=results/changes_"$DEMO_PROJECT_NAME".json
 PROPERTY_FOLDER=results/properties_"$DEMO_PROJECT_NAME"/
-PEASS_FILE=$PEASS_PROJECT/distribution/target/peass-distribution-*-SNAPSHOT.jar
-
 
 VERSION="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 
