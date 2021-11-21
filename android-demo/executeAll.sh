@@ -11,7 +11,7 @@ else
     echo "ANDROID_SDK_ROOT: $ANDROID_SDK_ROOT"
 fi
 
-if [ "$#" -ne 1 ]; then
+if [ "$#" -lt 1 ]; then
 	branch="main"
 else
 	branch=$1

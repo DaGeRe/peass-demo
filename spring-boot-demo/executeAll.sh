@@ -3,7 +3,7 @@
 DEMO_PROJECT_NAME=demo-project-spring-boot
 
 if [ "$#" -lt 1 ]; then
-	branch="master"
+	branch="main"
 else
 	branch=$1
 fi
