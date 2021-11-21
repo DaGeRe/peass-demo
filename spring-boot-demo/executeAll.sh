@@ -24,7 +24,6 @@ EXECUTION_FILE=results/execute_"$DEMO_PROJECT_NAME".json
 DEPENDENCY_FILE=results/deps_"$DEMO_PROJECT_NAME".json
 CHANGES_DEMO_PROJECT=results/changes_"$DEMO_PROJECT_NAME".json
 PROPERTY_FOLDER=results/properties_"$DEMO_PROJECT_NAME"/
-PEASS_FILE=$PEASS_PROJECT/distribution/target/peass-distribution-*-SNAPSHOT.jar
 
 # It is assumed that $DEMO_HOME is set correctly and PeASS has been built!
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
