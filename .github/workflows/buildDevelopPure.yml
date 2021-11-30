@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
         matrix:
-          java: [ 1.8, 11, 15 ]
+          java: [ 1.8, 11, 17 ]
           rcaStrategy: [ COMPLETE, LEVELWISE, UNTIL_SOURCE_CHANGE ]
         fail-fast: false
     name: Pure Java Demo ${{ matrix.java }} rcaStrategy ${{ matrix.rcaStrategy }}
