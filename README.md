@@ -8,7 +8,7 @@ If you just want to see the results, you can also immediately open `example_resu
 
 In current development state, it is recommended to use the latest development version of Peass. The following commands require (at least) installed OpenJDK 8, maven and tar and have been tried on Ubuntu 18.04 and 20.04.
 
-For installing the latest development version of Peass run `git clone https://github.com/DaGeRe/peass.git && cd peass && mvn clean install` inside the `peass-demo`-folder in order to clone and build Peass (optionally add `-DskipTests` to the `mvn`-call to speed up building).
+For installing the latest development version of Peass run `git clone https://github.com/DaGeRe/peass.git && cd peass && mvn clean install -DskipTests -P buildStarter` inside the `peass-demo`-folder in order to clone and build Peass (optionally add `-DskipTests` to the `mvn`-call to speed up building).
 
 To get the example running, untar the example project using `tar -xvf demo-project.tar.xz` (which is a git project itself and is therefore managed inside this repo as tar). For the following commands, we assume that you are in the peass-folder and that the `demo-project` is in the folder one level above.
 
