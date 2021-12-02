@@ -1,0 +1,28 @@
+name: Peass Multimodule Renamed main
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+    branches: [ master ]
+  schedule:
+    - cron: "0 */8 * * *"
+
+jobs:
+  runDemo:
+    runs-on: ubuntu-latest
+    strategy:
+        matrix:
+          java: [ 1.8, 11, 17 ]
+        fail-fast: false
+    name: Multimodule Renamed ${{ matrix.java }} rcaStrategy
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK ${{ matrix.java }}
+      uses: actions/setup-java@v1
+      with:
+        java-version: ${{ matrix.java }}
+    - name: executeAll
+      run: cd demo-multimodule-renamed && ./executeAll.sh main UNTIL_SOURCE_CHANGE
