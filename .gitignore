@@ -10,6 +10,9 @@ android-demo/demo-project-android_peass/
 android-demo/results/
 compile-error/demo-project-compile-error/
 compile-error/demo-project-compile-error_peass/
+demo-multimodule-renamed/demo-project-multimodule-renamed/
+demo-multimodule-renamed/demo-project-multimodule-renamed_peass/
+demo-multimodule-renamed/results/
 demo-project
 demo-project_peass
 peass
