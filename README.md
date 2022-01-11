@@ -12,13 +12,13 @@ In current development state, it is recommended to use the latest development ve
 
 For installing the latest development version of Peass run `git clone https://github.com/DaGeRe/peass.git && cd peass && mvn clean install -DskipTests -P buildStarter` inside the root folder of the project in order to clone and build Peass (optionally add `-DskipTests` to the `mvn`-call to speed up building).
 
-To get the example running, untar the example project using `tar -xvf pure-demo.tar.xz` (which is a git project itself and is therefore managed inside this repo as tar). For the following commands, we assume that you are in the peass-folder and that the `pure-demo` is in the folder one level above.
+To get the example running, untar the example project using `tar -xvf demo-project.tar.xz` (which is a git project itself and is therefore managed inside this repo as tar). For the following commands, we assume that you are in the peass-folder and that the `pure-demo` is in the folder one level above.
 
 So you should got:
 
 * peass (in the main folder)
-* pure-demo/pure-demo
-* pure-demo/pure-demo.tar.xz
+* pure-demo/demo-project
+* pure-demo/demo-project.tar.xz
 
 and than run `cd peass`.
 
