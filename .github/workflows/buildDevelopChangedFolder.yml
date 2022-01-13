@@ -1,4 +1,4 @@
-name: Peass (develop) Pure Demo
+name: Peass (develop) Changed Folder
 
 on:
   push:
@@ -16,9 +16,8 @@ jobs:
     strategy:
         matrix:
           java: [ 1.8, 11, 17 ]
-          rcaStrategy: [ UNTIL_SOURCE_CHANGE ]
         fail-fast: false
-    name: Pure Java Demo ${{ matrix.java }} rcaStrategy ${{ matrix.rcaStrategy }}
+    name: Changed Folder Demo ${{ matrix.java }}
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK ${{ matrix.java }}
