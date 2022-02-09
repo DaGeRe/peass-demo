@@ -13,6 +13,9 @@ compile-error/demo-project-compile-error_peass/
 demo-multimodule-renamed/demo-project-multimodule-renamed/
 demo-multimodule-renamed/demo-project-multimodule-renamed_peass/
 demo-multimodule-renamed/results/
+demo-parameterized/demo-project-parameterized/
+demo-parameterized/demo-project-parameterized_peass/
+demo-parameterized/results/
 changed-folder-demo/results/
 demo-project
 demo-project_peass
