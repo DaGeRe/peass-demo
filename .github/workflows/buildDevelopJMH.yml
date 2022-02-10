@@ -1,4 +1,4 @@
-name: Peass (develop) Pure Demo
+name: Peass (develop) JMH
 
 on:
   push:
