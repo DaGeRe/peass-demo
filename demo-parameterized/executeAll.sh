@@ -93,7 +93,7 @@ fi
 SOURCE_METHOD_LINE=$(grep "Callee.method1_" results/$VERSION/de.dagere.peass.ExampleTest_test.js -A 3 \
     | head -n 3 \
     | grep innerMethod)
-if [[ "$SOURCE_METHOD_LINE" != *"innerMethod();" ]]
+if [[ "$SOURCE_METHOD_LINE" != *"innerMethod(value);" ]]
 then
     echo "Line could not be detected - source reading probably failed."
     echo "SOURCE_METHOD_LINE: $SOURCE_METHOD_LINE"
