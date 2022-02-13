@@ -48,6 +48,12 @@ then
     exit 1
 fi
 
+SELECTED_TESTCASES=$(cat $EXECUTION_FILE | grep "testcases" -A 1 | tail -n 1)
+if [[ "$SELECTED_TESTCASES" != *"[ \"test(JUNIT_PARAMETERIZED-0)\", \"test(JUNIT_PARAMETERIZED-1)\" ]" ]]
+then
+	echo "test(JUNIT_PARAMETERIZED-0) and test(JUNIT_PARAMETERIZED-1) should be selected, but was: $SELECTED_TESTCASES"
+fi
+
 echo ":::::::::::::::::::::MEASURE::::::::::::::::::::::::::::::::::::::::::"
 java -jar $PEASS_FILE measure -executionfile $EXECUTION_FILE -folder $DEMO_HOME -vms 5 -iterations 5 -warmup 5 -repetitions 5
 
