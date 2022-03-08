@@ -20,8 +20,8 @@ source ../common-functions.sh
 
 DEMO_HOME=$(pwd)/$DEMO_PROJECT_NAME
 DEMO_PROJECT_PEASS=$(pwd)/"$DEMO_PROJECT_NAME"_peass
-EXECUTION_FILE=results/execute_"$DEMO_PROJECT_NAME".json
-DEPENDENCY_FILE=results/deps_"$DEMO_PROJECT_NAME".json
+EXECUTION_FILE=results/traceTestSelection_"$DEMO_PROJECT_NAME".json
+DEPENDENCY_FILE=results/staticTestSelection_"$DEMO_PROJECT_NAME".json
 CHANGES_DEMO_PROJECT=results/changes_"$DEMO_PROJECT_NAME".json
 PROPERTY_FOLDER=results/properties_"$DEMO_PROJECT_NAME"/
 
