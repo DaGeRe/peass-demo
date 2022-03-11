@@ -45,7 +45,7 @@ echo ":::::::::::::::::::::MEASURE::::::::::::::::::::::::::::::::::::::::::"
 java -jar $PEASS_FILE measure -executionfile $EXECUTION_FILE -folder $DEMO_HOME -workloadType JMH -vms 3 -iterations 5 -warmup 5 -repetitions 5
 
 echo "::::::::::::::::::::GETCHANGES::::::::::::::::::::::::::::::::::::::::"
-java -jar $PEASS_FILE getchanges -data $DEMO_PROJECT_PEASS -dependencyfile $DEPENDENCY_FILE
+java -jar $PEASS_FILE getchanges -data $DEMO_PROJECT_PEASS -staticSelectionFile $DEPENDENCY_FILE
 
 #Check, if $CHANGES_DEMO_PROJECT contains the correct commit-SHA
 TEST_SHA=$(grep -A1 'versionChanges" : {' $CHANGES_DEMO_PROJECT | grep -v '"versionChanges' | grep -Po '"\K.*(?=")')
