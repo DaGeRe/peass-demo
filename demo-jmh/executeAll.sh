@@ -16,7 +16,7 @@ DEMO_HOME=$(pwd)/$DEMO_PROJECT_NAME
 DEMO_PROJECT_PEASS=$(pwd)/"$DEMO_PROJECT_NAME"_peass
 EXECUTION_FILE=results/traceTestSelection_"$DEMO_PROJECT_NAME".json
 DEPENDENCY_FILE=results/staticTestSelection_"$DEMO_PROJECT_NAME".json
-CHANGES_DEMO_PROJECT=results/changes_"$DEMO_PROJECT_NAME".json
+CHANGES_DEMO_PROJECT=results/changes.json
 PROPERTY_FOLDER=results/properties_"$DEMO_PROJECT_NAME"/
 
 VERSION="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
