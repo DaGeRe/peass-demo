@@ -8,6 +8,12 @@ else
 	branch=$1
 fi
 
+if [ "$#" -lt 2 ]; then
+	additionalParameter=""
+else
+	additionalParameter="--executeBeforeClassInMeasurement"
+fi
+
 tar -xf "$DEMO_PROJECT_NAME".tar.xz
 
 source ../common-functions.sh
@@ -24,7 +30,7 @@ VERSION="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 
 # It is assumed that $DEMO_HOME is set correctly and PeASS has been built!
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
-java -jar $PEASS_FILE select -folder $DEMO_HOME
+java -jar $PEASS_FILE select -folder $DEMO_HOME $additionalParameter
 
 INITIALVERSION="dc90ca044d1aa98688ef2a7142f9019560df7a24"
 INITIAL_SELECTED=$(grep "initialversion" -A 1 $DEPENDENCY_FILE | grep "\"version\"" | tr -d " \"," | awk -F':' '{print $2}')
@@ -43,10 +49,10 @@ then
 fi
 
 echo ":::::::::::::::::::::MEASURE::::::::::::::::::::::::::::::::::::::::::"
-java -jar $PEASS_FILE measure -executionfile $EXECUTION_FILE -folder $DEMO_HOME -vms 5 -iterations 5 -warmup 5 -repetitions 5
+java -jar $PEASS_FILE measure -executionfile $EXECUTION_FILE -folder $DEMO_HOME -vms 5 -iterations 5 -warmup 5 -repetitions 5 $additionalParameter
 
 echo "::::::::::::::::::::GETCHANGES::::::::::::::::::::::::::::::::::::::::"
-java -jar $PEASS_FILE getchanges -data $DEMO_PROJECT_PEASS -staticSelectionFile $DEPENDENCY_FILE
+java -jar $PEASS_FILE getchanges -data $DEMO_PROJECT_PEASS -staticSelectionFile $DEPENDENCY_FILE $additionalParameter
 
 #Check, if $CHANGES_DEMO_PROJECT contains the correct commit-SHA
 TEST_SHA=$(grep -A1 'versionChanges" : {' $CHANGES_DEMO_PROJECT | grep -v '"versionChanges' | grep -Po '"\K.*(?=")')
@@ -66,7 +72,8 @@ java -jar $PEASS_FILE searchcause -vms 3 -iterations 5 -warmup 1 -repetitions 5 
     -folder $DEMO_HOME \
     -executionfile $EXECUTION_FILE \
     -rcaStrategy $rcaStrategy \
-    -propertyFolder $PROPERTY_FOLDER
+    -propertyFolder $PROPERTY_FOLDER \
+    $additionalParameter
 
 echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
 java -jar $PEASS_FILE visualizerca -data $DEMO_PROJECT_PEASS -propertyFolder $PROPERTY_FOLDER
