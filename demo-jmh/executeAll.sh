@@ -59,7 +59,7 @@ else
 fi
 
 echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
-java -jar $PEASS_FILE searchcause -vms 3 -iterations 5 -warmup 1 -repetitions 5 -version $VERSION \
+java -jar $PEASS_FILE searchcause -vms 3 -iterations 5 -warmup 1 -repetitions 5 -commit $VERSION \
     -workloadType JMH \
     -test de.dagere.peass.ExampleBenchmarkClazz\#calleeMethod \
     -folder $DEMO_HOME \

@@ -67,7 +67,7 @@ fi
 
 echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
 echo "rcaStrategy is: $rcaStrategy"
-java -jar $PEASS_FILE searchcause -vms 3 -iterations 5 -warmup 1 -repetitions 5 -version $VERSION \
+java -jar $PEASS_FILE searchcause -vms 3 -iterations 5 -warmup 1 -repetitions 5 -commit $VERSION \
     -test de.dagere.peass.ExampleTest\#test \
     -folder $DEMO_HOME \
     -executionfile $EXECUTION_FILE \

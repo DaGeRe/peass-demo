@@ -68,7 +68,7 @@ else
 fi
 
 echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
-java -jar $PEASS_FILE searchcause -vms 3 -iterations 5 -warmup 1 -repetitions 5 -version $VERSION \
+java -jar $PEASS_FILE searchcause -vms 3 -iterations 5 -warmup 1 -repetitions 5 -commit $VERSION \
     -test app§de.dagere.peass.ExampleTest\#test \
     -folder $DEMO_HOME \
     -executionfile $EXECUTION_FILE
