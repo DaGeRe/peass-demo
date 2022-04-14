@@ -2,14 +2,11 @@ name: Peass (develop) Pure Demo
 
 on:
   push:
-    branches: 
-    - master
+    branches: [ master ]
   pull_request:
-    branches:
-    - master
+    branches: [ master ]
   workflow_dispatch:
-    branches:
-    - master
+    branches: [ master ]
   schedule:
     - cron: "0 */8 * * *"
 
