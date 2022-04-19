@@ -31,7 +31,7 @@ VERSION="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
 java -jar $PEASS_FILE select -folder $DEMO_HOME
 
-INITIALVERSION="40276a02ed7da5771f813d3e57276535643a2305"
+INITIALVERSION="dad2668ec3799131981f0205c627740dc55611b9"
 INITIAL_SELECTED=$(grep "initialversion" -A 1 $DEPENDENCY_FILE | grep "\"version\"" | tr -d " \"," | awk -F':' '{print $2}')
 if [ "$INITIAL_SELECTED" != "$INITIALVERSION" ]
 then
