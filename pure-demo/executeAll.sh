@@ -30,7 +30,7 @@ VERSION="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 
 # It is assumed that $DEMO_HOME is set correctly and PeASS has been built!
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
-java -jar $PEASS_FILE select -folder $DEMO_HOME --excludeLog4j
+java -jar $PEASS_FILE select -folder $DEMO_HOME
 
 INITIALVERSION="ab75d1b25564928781cc287c614325ec0992a300"
 INITIAL_SELECTED=$(grep "initialversion" -A 1 $DEPENDENCY_FILE | grep "\"version\"" | tr -d " \"," | awk -F':' '{print $2}')
