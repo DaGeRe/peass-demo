@@ -25,13 +25,9 @@ VERSION="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
 java -jar $PEASS_FILE select -folder $DEMO_HOME -workloadType JMH
 
-INITIALVERSION="db0217b4aa32236d3fea5f88afa24069dbe8dba3"
-INITIAL_SELECTED=$(grep "initialversion" -A 1 $DEPENDENCY_FILE | grep "\"version\"" | tr -d " \"," | awk -F':' '{print $2}')
-if [ "$INITIAL_SELECTED" != "$INITIALVERSION" ]
-then
-	echo "Initialversion should be $INITIALVERSION, but was $INITIAL_SELECTED"
-	exit 1
-fi
+INITIALCOMMIT="db0217b4aa32236d3fea5f88afa24069dbe8dba3"
+checkInitialCommit $INITIALCOMMIT $DEPENDENCY_FILE
+
 
 if [ ! -f "$EXECUTION_FILE" ]
 then
