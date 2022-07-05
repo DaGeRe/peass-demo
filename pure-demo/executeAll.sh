@@ -25,20 +25,14 @@ DEPENDENCY_FILE=results/staticTestSelection_"$DEMO_PROJECT_NAME".json
 CHANGES_DEMO_PROJECT=results/changes.json
 PROPERTY_FOLDER=results/properties_"$DEMO_PROJECT_NAME"/
 
-
 VERSION="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 
 # It is assumed that $DEMO_HOME is set correctly and PeASS has been built!
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
 java -jar $PEASS_FILE select -folder $DEMO_HOME
 
-INITIALVERSION="ab75d1b25564928781cc287c614325ec0992a300"
-INITIAL_SELECTED=$(grep "initialversion" -A 1 $DEPENDENCY_FILE | grep "\"version\"" | tr -d " \"," | awk -F':' '{print $2}')
-if [ "$INITIAL_SELECTED" != "$INITIALVERSION" ]
-then
-	echo "Initialversion should be $INITIALVERSION, but was $INITIAL_SELECTED"
-	exit 1
-fi
+INITIALCOMMIT="ab75d1b25564928781cc287c614325ec0992a300"
+checkInitialCommit $INITIALCOMMIT $DEPENDENCY_FILE
 
 if [ ! -f "$EXECUTION_FILE" ]
 then
