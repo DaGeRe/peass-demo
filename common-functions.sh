@@ -10,6 +10,23 @@ function checkInitialCommit {
 	fi
 }
 
+function checkChanges {
+	expectedChangedCommit=$1
+	changefile=$2
+	DEMO_PROJECT_NAME=$3
+	
+	#Check, if $CHANGES_DEMO_PROJECT contains the correct commit-SHA
+	TEST_SHA=$(grep -A1 'commitChanges" : {' $changefile | grep -v '"commitChanges' | grep -Po '"\K.*(?=")')
+	if [ "$expectedChangedCommit" != "$TEST_SHA" ]
+	then
+	    echo "commit-SHA ("$expectedChangedCommit") is not equal to the SHA in $changefile ("$TEST_SHA")!"
+	    cat results/statistics/"$DEMO_PROJECT_NAME".json
+	    exit 1
+	else
+	    echo "$changefile contains the correct commit-SHA."
+	fi
+}
+
 echo "Cloning branch $branch"
 if [ ! -d ../peass ]
 then
