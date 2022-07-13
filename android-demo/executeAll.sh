@@ -75,7 +75,7 @@ else
     echo "Slowdown is detected for Callee#innerMethod."
 fi
 
-SOURCE_METHOD_LINE=$(grep "Callee.method1_" results/$VERSION/app§de.dagere.peass.ExampleTest_test.js -A 3 \
+SOURCE_METHOD_LINE=$(grep "Callee.method1_" results/$COMMIT/app§de.dagere.peass.ExampleTest_test.js -A 3 \
     | head -n 3 \
     | grep innerMethod)
 if [[ "$SOURCE_METHOD_LINE" != *"innerMethod();" ]]
