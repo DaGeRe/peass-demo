@@ -2,9 +2,9 @@ name: Peass (develop) Changed Folder
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
   schedule:
     - cron: "0 */8 * * *"

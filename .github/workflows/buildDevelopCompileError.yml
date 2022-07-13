@@ -2,9 +2,9 @@ name: Peass (develop) Compile Error Demo
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
   schedule:
     - cron: "0 */8 * * *"
