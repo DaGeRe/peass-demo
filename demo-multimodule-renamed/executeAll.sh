@@ -26,7 +26,7 @@ CHANGES_DEMO_PROJECT=results/changes.json
 PROPERTY_FOLDER=results/properties_"$DEMO_PROJECT_NAME"/
 
 
-VERSION="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
+COMMIT="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 
 # It is assumed that $DEMO_HOME is set correctly and PeASS has been built!
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
@@ -49,20 +49,11 @@ java -jar $PEASS_FILE measure -executionfile $EXECUTION_FILE -folder $DEMO_HOME 
 echo "::::::::::::::::::::GETCHANGES::::::::::::::::::::::::::::::::::::::::"
 java -jar $PEASS_FILE getchanges -data $DEMO_PROJECT_PEASS -staticSelectionFile $DEPENDENCY_FILE
 
-#Check, if $CHANGES_DEMO_PROJECT contains the correct commit-SHA
-TEST_SHA=$(grep -A1 'versionChanges" : {' $CHANGES_DEMO_PROJECT | grep -v '"versionChanges' | grep -Po '"\K.*(?=")')
-if [ "$VERSION" != "$TEST_SHA" ]
-then
-    echo "commit-SHA ("$VERSION") is not equal to the SHA in $CHANGES_DEMO_PROJECT ("$TEST_SHA")!"
-    cat results/statistics/"$DEMO_PROJECT_NAME".json
-    exit 1
-else
-    echo "$CHANGES_DEMO_PROJECT contains the correct commit-SHA."
-fi
+checkChanges $COMMIT $CHANGES_DEMO_PROJECT $DEMO_PROJECT_NAME
 
 echo "::::::::::::::::::::SEARCHCAUSE:::::::::::::::::::::::::::::::::::::::"
 echo "rcaStrategy is: $rcaStrategy"
-java -jar $PEASS_FILE searchcause -vms 3 -iterations 5 -warmup 1 -repetitions 5 -commit $VERSION \
+java -jar $PEASS_FILE searchcause -vms 3 -iterations 5 -warmup 1 -repetitions 5 -commit $COMMIT \
     -test module-using§de.AnotherTest\#testMe \
     -folder $DEMO_HOME \
     -executionfile $EXECUTION_FILE \
@@ -79,13 +70,13 @@ STATE=$(grep -A21 '"call" : "de.AnotherTest#testMe",' results/$VERSION/module-us
 if [ "$STATE" != "SLOWER" ]
 then
     echo "State for de.AnotherTest#testMe in module-using§de.AnotherTest_testMe.js has not the expected value SLOWER, but was $STATE!"
-    cat results/$VERSION/de.dagere.peass.ExampleTest_test.js
+    cat results/$COMMIT/de.dagere.peass.ExampleTest_test.js
     exit 1
 else
     echo "Slowdown is detected for Callee#innerMethod."
 fi
 
-SOURCE_METHOD_LINE=$(grep "AnotherChangeable.callMe_" results/$VERSION/module-using§de.AnotherTest_testMe.js -A 3 \
+SOURCE_METHOD_LINE=$(grep "AnotherChangeable.callMe_" results/$COMMIT/module-using§de.AnotherTest_testMe.js -A 3 \
     | head -n 3 \
     | grep callMe)
 if [[ "$SOURCE_METHOD_LINE" != *"callMe() {" ]]
