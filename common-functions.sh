@@ -27,6 +27,37 @@ function checkChanges {
 	fi
 }
 
+function checkResultJS {
+	expectedChangedCommit=$1
+
+	resultJS=results/$expectedChangedCommit/de.dagere.peass.ExampleTest/test.js
+
+	#Check, if a slowdown is detected for Callee#innerMethod
+	STATE=$(grep -A21 '"call" : "de.dagere.peass.Callee#innerMethod",' $resultJS \
+	    | grep '"state" : "SLOWER",' \
+	    | grep -o 'SLOWER')
+	if [ "$STATE" != "SLOWER" ]
+	then
+	    echo "State for Callee#innerMethod in de.dagere.peass.ExampleTest_test.js has not the expected value SLOWER, but was $STATE!"
+	    cat $resultJS
+	    exit 1
+	else
+	    echo "Slowdown is detected for Callee#innerMethod."
+	fi
+
+	SOURCE_METHOD_LINE=$(grep "Callee.method1_" $resultJS -A 3 \
+	    | head -n 3 \
+	    | grep innerMethod)
+	if [[ "$SOURCE_METHOD_LINE" != *"innerMethod();" ]]
+	then
+	    echo "Line could not be detected - source reading probably failed."
+	    echo "SOURCE_METHOD_LINE: $SOURCE_METHOD_LINE"
+	    exit 1
+	else
+	    echo "SOURCE_METHOD_LINE is correct."
+	fi
+}
+
 echo "Cloning branch $branch"
 if [ ! -d ../peass ]
 then
