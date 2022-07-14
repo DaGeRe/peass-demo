@@ -72,19 +72,19 @@ echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
 java -jar $PEASS_FILE visualizerca -data $DEMO_PROJECT_PEASS -propertyFolder $PROPERTY_FOLDER
 
 #Check, if a slowdown is detected for Callee#innerMethod
-STATE=$(grep -A21 '"call" : "de.dagere.peass.Callee#innerMethod",' "results/$COMMIT/de.dagere.peass.ExampleTest_test(JUNIT_PARAMETERIZED-1).js" \
+STATE=$(grep -A21 '"call" : "de.dagere.peass.Callee#innerMethod",' "results/$COMMIT/de.dagere.peass.ExampleTest/test(JUNIT_PARAMETERIZED-1).js" \
     | grep '"state" : "SLOWER",' \
     | grep -o 'SLOWER')
 if [ "$STATE" != "SLOWER" ]
 then
     echo "State for Callee#innerMethod in de.dagere.peass.ExampleTest_test(JUNIT_PARAMETERIZED-1).js has not the expected value SLOWER, but was $STATE!"
-    cat "results/$COMMIT/de.dagere.peass.ExampleTest_test(JUNIT_PARAMETERIZED-1).js"
+    cat "results/$COMMIT/de.dagere.peass.ExampleTest/test(JUNIT_PARAMETERIZED-1).js"
     exit 1
 else
     echo "Slowdown is detected for Callee#innerMethod."
 fi
 
-SOURCE_METHOD_LINE=$(grep "Callee.method1_" "results/$COMMIT/de.dagere.peass.ExampleTest_test(JUNIT_PARAMETERIZED-1).js" -A 3 \
+SOURCE_METHOD_LINE=$(grep "Callee.method1_" "results/$COMMIT/de.dagere.peass.ExampleTest/test(JUNIT_PARAMETERIZED-1).js" -A 3 \
     | head -n 3 \
     | grep innerMethod)
 if [[ "$SOURCE_METHOD_LINE" != *"innerMethod(value);" ]]
