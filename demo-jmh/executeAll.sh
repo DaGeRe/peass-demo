@@ -57,7 +57,7 @@ java -jar $PEASS_FILE visualizerca -data $DEMO_PROJECT_PEASS -propertyFolder $PR
 
 checkChanges $COMMIT $CHANGES_DEMO_PROJECT $DEMO_PROJECT_NAME
 
-SOURCE_METHOD_LINE=$(grep "Callee.method1_" results/$COMMIT/de.dagere.peass.ExampleBenchmarkClazz_calleeMethod.js -A 3 \
+SOURCE_METHOD_LINE=$(grep "Callee.method1_" results/$COMMIT/de.dagere.peass.ExampleBenchmarkClazz/calleeMethod.js -A 3 \
     | head -n 3 \
     | grep innerMethod)
 if [[ "$SOURCE_METHOD_LINE" != *"innerMethod();" ]]
