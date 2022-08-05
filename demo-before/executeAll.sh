@@ -44,7 +44,7 @@ then
 fi
 
 echo ":::::::::::::::::::::MEASURE::::::::::::::::::::::::::::::::::::::::::"
-java -jar $PEASS_FILE measure -executionfile $EXECUTION_FILE -folder $DEMO_HOME -vms 5 -iterations 5 -warmup 5 -repetitions 5 $additionalParameter
+java -jar $PEASS_FILE measure -executionFile $EXECUTION_FILE -folder $DEMO_HOME -vms 5 -iterations 5 -warmup 5 -repetitions 5 $additionalParameter
 
 echo "::::::::::::::::::::GETCHANGES::::::::::::::::::::::::::::::::::::::::"
 java -jar $PEASS_FILE getchanges -data $DEMO_PROJECT_PEASS -staticSelectionFile $DEPENDENCY_FILE
@@ -56,7 +56,7 @@ echo "rcaStrategy is: $rcaStrategy"
 java -jar $PEASS_FILE searchcause -vms 3 -iterations 5 -warmup 1 -repetitions 5 -commit $COMMIT \
     -test de.dagere.peass.ExampleTest\#test \
     -folder $DEMO_HOME \
-    -executionfile $EXECUTION_FILE \
+    -executionFile $EXECUTION_FILE \
     -rcaStrategy UNTIL_SOURCE_CHANGE \
     -propertyFolder $PROPERTY_FOLDER \
     $additionalParameter

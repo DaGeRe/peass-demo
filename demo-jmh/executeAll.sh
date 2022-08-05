@@ -38,7 +38,7 @@ then
 fi
 
 echo ":::::::::::::::::::::MEASURE::::::::::::::::::::::::::::::::::::::::::"
-java -jar $PEASS_FILE measure -executionfile $EXECUTION_FILE -folder $DEMO_HOME -workloadType JMH -vms 3 -iterations 5 -warmup 5 -repetitions 5
+java -jar $PEASS_FILE measure -executionFile $EXECUTION_FILE -folder $DEMO_HOME -workloadType JMH -vms 3 -iterations 5 -warmup 5 -repetitions 5
 
 echo "::::::::::::::::::::GETCHANGES::::::::::::::::::::::::::::::::::::::::"
 java -jar $PEASS_FILE getchanges -data $DEMO_PROJECT_PEASS -staticSelectionFile $DEPENDENCY_FILE
@@ -50,7 +50,7 @@ java -jar $PEASS_FILE searchcause -vms 3 -iterations 5 -warmup 1 -repetitions 5 
     -workloadType JMH \
     -test de.dagere.peass.ExampleBenchmarkClazz\#calleeMethod \
     -folder $DEMO_HOME \
-    -executionfile $EXECUTION_FILE
+    -executionFile $EXECUTION_FILE
 
 echo "::::::::::::::::::::VISUALIZERCA::::::::::::::::::::::::::::::::::::::"
 java -jar $PEASS_FILE visualizerca -data $DEMO_PROJECT_PEASS -propertyFolder $PROPERTY_FOLDER
