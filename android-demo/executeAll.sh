@@ -30,7 +30,7 @@ PROPERTY_FOLDER=results/properties_"$DEMO_PROJECT_NAME"/
 
 COMMIT="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 
-# It is assumed that $DEMO_HOME is set correctly and PeASS has been built!
+# It is assumed that $DEMO_HOME is set correctly and Peass has been built!
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
 java -jar $PEASS_FILE select -folder $DEMO_HOME
 
