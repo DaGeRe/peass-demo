@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
         matrix:
-          java: [ 1.8, 11 ] # Java 17 is currently not supported by Android
+          java: [ 11 ] # Java 17 is currently not supported by Android
         fail-fast: false
     name: Android Demo ${{ matrix.java }}
     steps:
