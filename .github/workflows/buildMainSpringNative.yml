@@ -18,10 +18,11 @@ jobs:
         fail-fast: false
     name: Spring Boot Native Demo ${{ matrix.java }} rcaStrategy UNTIL_SOURCE_CHANGE
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Set up JDK ${{ matrix.java }}
-      uses: actions/setup-java@v1
+      uses: actions/setup-java@v4
       with:
         java-version: ${{ matrix.java }}
+        distribution: 'temurin'
     - name: executeAll
       run: cd spring-boot-nativeTest-demo && ./executeAll.sh main UNTIL_SOURCE_CHANGE
