@@ -31,7 +31,7 @@ COMMIT="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
 java -jar $PEASS_FILE select -folder $DEMO_HOME
 
-INITIALCOMMIT="9fd2fa32c9a57d4cdc9ea8c191f3aadd8d956224"
+INITIALCOMMIT="4b5be6e19b2a1f04c214b22504ce052c5ce46ace"
 checkInitialCommit $INITIALCOMMIT $DEPENDENCY_FILE
 
 INITIAL_TEST=$(grep "initialDependencies" -A 1 $DEPENDENCY_FILE | grep "ExampleTest")
