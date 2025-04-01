@@ -32,7 +32,7 @@ COMMIT="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
 java -jar $PEASS_FILE select -folder $DEMO_HOME -notUseSourceInstrumentation
 
-INITIALCOMMIT="1f17e262475fc5e7fa555a47758e65399c788b85"
+INITIALCOMMIT="12d9b0575134f8d8e7fcadc133686631c539796e"
 checkInitialCommit $INITIALCOMMIT $DEPENDENCY_FILE
 
 if [ ! -f "$EXECUTION_FILE" ]
