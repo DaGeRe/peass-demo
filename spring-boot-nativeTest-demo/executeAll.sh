@@ -14,7 +14,7 @@ else
     rcaStrategy="COMPLETE"
 fi
 
-tar -xf "$DEMO_PROJECT_NAME".tar.xz
+tar -xf "$DEMO_PROJECT_NAME".tar.zstd
 
 source ../common-functions.sh
 
@@ -31,7 +31,7 @@ COMMIT="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 echo ":::::::::::::::::::::SELECT:::::::::::::::::::::::::::::::::::::::::::"
 java -jar $PEASS_FILE select -folder $DEMO_HOME
 
-INITIALCOMMIT="4b5be6e19b2a1f04c214b22504ce052c5ce46ace"
+INITIALCOMMIT="d4421d65c65b5c81012ef6102459a61693e041e8"
 checkInitialCommit $INITIALCOMMIT $DEPENDENCY_FILE
 
 INITIAL_TEST=$(grep "initialDependencies" -A 1 $DEPENDENCY_FILE | grep "ExampleTest")
