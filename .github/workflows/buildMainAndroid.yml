@@ -11,6 +11,7 @@ on:
 
 jobs:
   runDemo:
+    if: false # There is no point in maintaining the android demo if no one uses this in production; re-enable and debug (needs to be updated to newest SDK and JVM version)
     runs-on: ubuntu-latest
     strategy:
         matrix:
